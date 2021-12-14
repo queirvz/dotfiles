@@ -1,0 +1,48 @@
+[global_config]
+  handle_size = 0
+  borderless = True
+  title_hide_sizetext = True
+  title_transmit_bg_color = "#1b8e8e"
+  title_inactive_fg_color = "#c0bebf"
+  title_inactive_bg_color = "#014755"
+  inactive_color_offset = 0.7056962025316456
+  suppress_multiple_term_dialog = True
+  always_split_with_profile = True
+  title_use_system_font = False
+  title_font = Cascadia Code Semi-Light 10
+  case_sensitive = False
+[keybindings]
+  zoom_in = <Primary>equal
+  zoom_out = <Primary>minus
+  new_tab = <Primary>t
+  close_term = <Primary>w
+  paste = <Primary>v
+  search = <Primary>f
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    scrollbar_position = hidden
+    scrollback_lines = 1000
+  [[MonokaiPro]]
+    background_color = "#031013"
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#73d216"
+    cursor_color_fg = False
+    font = Cascadia Code Semi-Bold 12
+    foreground_color = "#fcfcfa"
+    scrollbar_position = hidden
+    scrollback_lines = 1000
+    palette = "#403e41:#ff6188:#a9dc76:#ffd866:#fc9867:#ab9df2:#78dce8:#fcfcfa:#727072:#ff6188:#a9dc76:#ffd866:#fc9867:#ab9df2:#78dce8:#fcfcfa"
+    use_system_font = False
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = MonokaiPro
+[plugins]

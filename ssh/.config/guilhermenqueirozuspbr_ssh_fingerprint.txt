@@ -1,0 +1,14 @@
+The key fingerprint is:
+SHA256:dX+STTzvaXraxesPbKOrxKk0NoCx5i6OXr6hErJO3eI guilhermenqueiroz@usp.br
+The key's randomart image is:
++---[RSA 4096]----+
+|                 |
+|               . |
+|    .     . .  .o|
+|     +   . . . +o|
+|    + . S     + +|
+|o .o.  . . . . =.|
+|.+ =..  = +   =o+|
+|+.*.o  o =   o++o|
+|==.Eo   . ..o+++o|
++----[SHA256]-----+

@@ -18,10 +18,10 @@
 #                                   Q:::::Q
 #                                    QQQQQQ
 
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -51,14 +51,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# zstyle ':omz:update' frequency 13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -103,12 +102,14 @@ plugins=(git sublime python zsh-syntax-highlighting zsh-autosuggestions colored-
 
 source $ZSH/oh-my-zsh.sh
 
+# User configuration
+
 # wsl on steroids: zsh aliases
 
 ## programming-related
 alias svba='source venv/bin/activate'
-alias brave='/usr/bin/brave-browser -incognito'
-alias code='/snap/bin/code-insiders'
+alias brave='/usr/bin/brave-browser-beta -incognito'
+alias code='/usr/bin/code-insiders'
 alias ls='ls -lha --color=auto'
 alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
 
@@ -116,10 +117,8 @@ alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 
-export EDITOR='/snap/bin/subl'
-export VISUAL='/snap/bin/subl'
-
-# User configuration
+export EDITOR='/usr/bin/subl'
+export VISUAL='/usr/bin/subl'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -9,7 +9,7 @@
   suppress_multiple_term_dialog = True
   always_split_with_profile = True
   title_use_system_font = False
-  title_font = Cascadia Code Semi-Light 10
+  title_font = Ubuntu Mono 18
   case_sensitive = False
 [keybindings]
   zoom_in = <Primary>equal
@@ -25,11 +25,11 @@
     scrollback_lines = 1000
   [[MonokaiPro]]
     background_color = "#031013"
-    background_darkness = 0.95
+    background_darkness = 0.97
     background_type = transparent
     cursor_color = "#73d216"
     cursor_color_fg = False
-    font = Cascadia Code Semi-Bold 12
+    font = Ubuntu Mono 18
     foreground_color = "#fcfcfa"
     scrollbar_position = hidden
     scrollback_lines = 1000

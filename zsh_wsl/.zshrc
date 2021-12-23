@@ -108,17 +108,21 @@ source $ZSH/oh-my-zsh.sh
 
 ## programming-related
 alias svba='source venv/bin/activate'
-alias brave='/usr/bin/brave-browser-beta -incognito'
-alias code='/usr/bin/code-insiders'
+alias brave='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser-Beta/Application/brave.exe -incognito'
+alias subl='/mnt/c/Program\ Files/SublimeText/sublime_text.exe'
+alias code='/mnt/c/Users/GQ/AppData/Local/Programs/Microsoft\ VSCodeInsiders/bin/code-insiders'
 alias ls='ls -lha --color=auto'
 alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
+### after `sudo mount -t drvfs G: /mnt/g` on WSL
+alias drive='cd /mnt/g/My\ Drive/gq_drive/'
+alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
 
 alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 
-export EDITOR='/usr/bin/subl'
-export VISUAL='/usr/bin/subl'
+#export EDITOR='/usr/bin/subl'
+#export VISUAL='/usr/bin/subl'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

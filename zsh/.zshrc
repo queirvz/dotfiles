@@ -117,6 +117,9 @@ alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 
+alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
+alias lab="cd /home/$USER/gq_lab/ && echo `/home/$USER/gq_lab` entering the lab... cool"
+
 export EDITOR='/usr/bin/subl'
 export VISUAL='/usr/bin/subl'
 

@@ -1,0 +1,1 @@
+cp ./hack_nerd_font.zip ~/.local/share/fonts && cd ~/.local/share/fonts &&  unzip ./hack_nerd_font.zip && sudo fc-cache -f -v

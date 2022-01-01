@@ -110,7 +110,20 @@ source $ZSH/oh-my-zsh.sh
 alias svba='source venv/bin/activate'
 alias brave='/usr/bin/brave-browser-beta -incognito'
 alias code='/usr/bin/code-insiders'
-alias ls='ls -lha --color=auto'
+
+
+
+command -v lsd > /dev/null && alias ls='lsd -a --group-dirs first' && \
+	alias tree='lsd --tree'
+
+command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
+	alias tree='lsd --tree'
+
+command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
+	alias tree='colorls --tree'
+
+#alias ls='ls -lha --color=auto'
+
 alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
 
 alias cd.='cd ../'

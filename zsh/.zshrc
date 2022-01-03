@@ -102,16 +102,16 @@ plugins=(git sublime python zsh-syntax-highlighting zsh-autosuggestions colored-
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
-# wsl on steroids: zsh aliases
+# User configuration
 
 ## programming-related
 alias svba='source venv/bin/activate'
 alias brave='/usr/bin/brave-browser-beta -incognito'
 alias code='/usr/bin/code-insiders'
-
-
 
 command -v lsd > /dev/null && alias ls='lsd -a --group-dirs first' && \
 	alias tree='lsd --tree'

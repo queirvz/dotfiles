@@ -1,4 +1,4 @@
-#                                          Guilherme Queiroz's zsh config
+#                                          Guilherme Queiroz's zsh config for WSL
 #         GGGGGGGGGGGGG     QQQQQQQQQ      https://github.com/queirvz
 #      GGG::::::::::::G   QQ:::::::::QQ    
 #    GG:::::::::::::::G QQ:::::::::::::QQ  
@@ -102,24 +102,38 @@ plugins=(git sublime python zsh-syntax-highlighting zsh-autosuggestions colored-
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
-# wsl on steroids: zsh aliases
+# User configuration
 
 ## programming-related
 alias svba='source venv/bin/activate'
 alias brave='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser-Beta/Application/brave.exe -incognito'
 alias subl='/mnt/c/Program\ Files/SublimeText/sublime_text.exe'
 alias code='/mnt/c/Users/GQ/AppData/Local/Programs/Microsoft\ VSCodeInsiders/bin/code-insiders'
-alias ls='ls -lha --color=auto'
+
+command -v lsd > /dev/null && alias ls='lsd -a --group-dirs first' && \
+	alias tree='lsd --tree'
+
+command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
+	alias tree='lsd --tree'
+
+command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
+	alias tree='colorls --tree'
+
+#alias ls='ls -lha --color=auto'
+
 alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
-### after `sudo mount -t drvfs G: /mnt/g` on WSL
-alias drive='cd /mnt/g/My\ Drive/gq_drive/'
-alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
 
 alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
+
+### after `sudo mount -t drvfs G: /mnt/g` on WSL
+alias drive='cd /mnt/g/My\ Drive/gq_drive/'
+alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
 
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
 alias lab="cd /home/$USER/gq_lab/ && echo `/home/$USER/gq_lab` entering the lab... cool"

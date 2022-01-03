@@ -124,7 +124,6 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree'
 
 #alias ls='ls -lha --color=auto'
-
 alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
 
 alias cd.='cd ../'

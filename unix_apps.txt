@@ -1,0 +1,10 @@
+stow
+ranger
+stacer
+sublime-text
+vscode_insiders
+terminator
+brave
+albert
+zsh
+oh-my-zsh

@@ -131,7 +131,7 @@ alias cd..='cd ../../'
 alias cd...='cd ../../../'
 
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
-alias lab="cd /home/$USER/gq_lab/ && echo `/home/$USER/gq_lab` entering the lab... cool"
+alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool"
 
 export EDITOR='/usr/bin/subl'
 export VISUAL='/usr/bin/subl'
@@ -162,3 +162,14 @@ export VISUAL='/usr/bin/subl'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+###########################################
+
+# [.sh scripts located in /home/$USER/bin/]
+
+## from [wsl-open](https://github.com/4U6U57/wsl-open) (WSL xdg-open utility)
+## after `curl -o ~/gq_lab/gq_dotfiles/bin/wsl-open https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh`
+### [[ -e ~/bin ]] && export PATH=$PATH:~/bin
+
+## from []() ()
+##

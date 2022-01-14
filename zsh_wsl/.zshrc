@@ -1,4 +1,4 @@
-#                                          Guilherme Queiroz's zsh config for WSL
+#                                          Guilherme Queiroz's zsh config
 #         GGGGGGGGGGGGG     QQQQQQQQQ      https://github.com/queirvz
 #      GGG::::::::::::G   QQ:::::::::QQ    
 #    GG:::::::::::::::G QQ:::::::::::::QQ  
@@ -125,6 +125,9 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 
 #alias ls='ls -lha --color=auto'
 alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
+### after `sudo mount -t drvfs G: /mnt/g` on WSL
+alias drive='cd /mnt/g/My\ Drive/gq_drive/'
+alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
 
 alias cd.='cd ../'
 alias cd..='cd ../../'
@@ -136,6 +139,7 @@ alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool"
 #export EDITOR='/usr/bin/subl'
 #export VISUAL='/usr/bin/subl'
 
+<<<<<<< HEAD
 ## WSL-specific
 
 ### after `sudo mount -t drvfs G: /mnt/g` on WSL
@@ -144,6 +148,17 @@ alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
 
 ### /home/$USER/bin/wsl-open
 alias open='wsl-open'
+=======
+### ms office & windows-related
+#alias explorer='/mnt/c/Windows/explorer.exe'
+alias onedrive='/mnt/c/Program\ Files/Microsoft\ OneDrive/OneDrive.exe'
+alias excel='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/EXCEL.EXE'
+alias powerpoint='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/POWERPNT.EXE'
+alias outlook='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/OUTLOOK.EXE'
+alias word='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/WINWORD.EXE'
+alias access='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/MSACCESS.EXE'
+alias publisher='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/MSPUB.EXE'
+>>>>>>> 70bc266e4ba60148229384b8f24704d30a2b77bb
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

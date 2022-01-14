@@ -130,15 +130,20 @@ alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 
-### after `sudo mount -t drvfs G: /mnt/g` on WSL
-alias drive='cd /mnt/g/My\ Drive/gq_drive/'
-alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
-
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
 alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool"
 
 #export EDITOR='/usr/bin/subl'
 #export VISUAL='/usr/bin/subl'
+
+## WSL-specific
+
+### after `sudo mount -t drvfs G: /mnt/g` on WSL
+alias drive='cd /mnt/g/My\ Drive/gq_drive/'
+alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
+
+### /home/$USER/bin/wsl-open
+alias open='wsl-open'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

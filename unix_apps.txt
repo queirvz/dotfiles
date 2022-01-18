@@ -7,15 +7,23 @@ git
 python3.10
 ssh
 ranger
-stacer
-dconf
 sublime-text
 vscode-insiders
-terminator
 alacritty
 brave-browser-beta
-albert
 authy-desktop
 inkscape
 gimp
 zoom
+
+
+# UNIX only
+
+stacer
+dconf
+terminator
+albert
+
+# WSL-only (usually at `~/bin/`)
+
+wsl-open

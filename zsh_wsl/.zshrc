@@ -139,7 +139,6 @@ alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool"
 #export EDITOR='/usr/bin/subl'
 #export VISUAL='/usr/bin/subl'
 
-<<<<<<< HEAD
 ## WSL-specific
 
 ### after `sudo mount -t drvfs G: /mnt/g` on WSL
@@ -148,7 +147,7 @@ alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
 
 ### /home/$USER/bin/wsl-open
 alias open='wsl-open'
-=======
+
 ### ms office & windows-related
 #alias explorer='/mnt/c/Windows/explorer.exe'
 alias onedrive='/mnt/c/Program\ Files/Microsoft\ OneDrive/OneDrive.exe'
@@ -158,7 +157,6 @@ alias outlook='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/OUTLOOK.EXE
 alias word='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/WINWORD.EXE'
 alias access='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/MSACCESS.EXE'
 alias publisher='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/MSPUB.EXE'
->>>>>>> 70bc266e4ba60148229384b8f24704d30a2b77bb
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

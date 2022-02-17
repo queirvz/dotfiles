@@ -150,6 +150,7 @@ alias open='wsl-open'
 
 ### ms office & windows-related
 #alias explorer='/mnt/c/Windows/explorer.exe'
+alias files='/mnt/c/Users/GQ/AppData/Local/Microsoft/WindowsApps/files.exe'
 alias onedrive='/mnt/c/Program\ Files/Microsoft\ OneDrive/OneDrive.exe'
 alias excel='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/EXCEL.EXE'
 alias powerpoint='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/POWERPNT.EXE'

@@ -9,13 +9,12 @@ ssh
 ranger
 sublime-text
 vscode-insiders
-alacritty
+bat 
 brave-browser-beta
 authy-desktop
 inkscape
 gimp
 zoom
-
 
 # UNIX only
 

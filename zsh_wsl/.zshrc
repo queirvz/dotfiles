@@ -124,7 +124,7 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree'
 
 #alias ls='ls -lha --color=auto'
-alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
+alias loaddapt='cd $HOME/rwcm_lab/rw_dapt && source venv/bin/activate && cd ./src'
 ### after `sudo mount -t drvfs G: /mnt/g` on WSL
 alias drive='cd /mnt/g/My\ Drive/gq_drive/'
 alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'

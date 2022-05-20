@@ -110,7 +110,7 @@ HISTCONTROL=ignoreboth
 
 ## programming-related
 alias svba='source venv/bin/activate'
-alias brave='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser-Beta/Application/brave.exe -incognito'
+alias brave='/mnt/c/Program\ Files/BraveSoftware/Brave-Browser-Beta/Application/brave.exe'
 alias subl='/mnt/c/Program\ Files/SublimeText/sublime_text.exe'
 alias code='/mnt/c/Users/GQ/AppData/Local/Programs/Microsoft\ VSCodeInsiders/bin/code-insiders'
 
@@ -124,7 +124,7 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree'
 
 #alias ls='ls -lha --color=auto'
-alias loaddapt='cd $HOME/rwcm_lab/rw_dapt && source venv/bin/activate && cd ./src'
+alias loaddapt='cd $HOME/rwcm_lab/rw_dapt && source venv/bin/activate && echo "entering rw_data_processing_tool repository" && cd ./src && ls'
 ### after `sudo mount -t drvfs G: /mnt/g` on WSL
 alias drive='cd /mnt/g/My\ Drive/gq_drive/'
 alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
@@ -136,7 +136,7 @@ alias cd...='cd ../../../'
 alias bat='batcat'
 
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
-alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool"
+alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool && ls"
 
 #export EDITOR='/usr/bin/subl'
 #export VISUAL='/usr/bin/subl'
@@ -157,9 +157,6 @@ alias onedrive='/mnt/c/Program\ Files/Microsoft\ OneDrive/OneDrive.exe'
 alias excel='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/EXCEL.EXE'
 alias powerpoint='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/POWERPNT.EXE'
 alias outlook='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/OUTLOOK.EXE'
-alias word='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/WINWORD.EXE'
-alias access='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/MSACCESS.EXE'
-alias publisher='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/MSPUB.EXE'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -110,7 +110,7 @@ HISTCONTROL=ignoreboth
 
 ## programming-related
 alias svba='source venv/bin/activate'
-alias brave='/usr/bin/brave-browser-beta -incognito'
+alias brave='/usr/bin/brave-browser-beta'
 alias code='/usr/bin/code-insiders'
 
 command -v lsd > /dev/null && alias ls='lsd -a --group-dirs first' && \

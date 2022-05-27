@@ -136,7 +136,7 @@ alias cd...='cd ../../../'
 alias bat='batcat'
 
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
-alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool && ls"
+alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... && ls"
 
 #export EDITOR='/usr/bin/subl'
 #export VISUAL='/usr/bin/subl'

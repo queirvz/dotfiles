@@ -1,6 +1,6 @@
 # apps
 
-## $$ \forall $$ `unix`
+## $$ for all `unix`
 
 - [`zsh`](https://www.zsh.org)
 - [`zsh-autosuggestions`]()
@@ -19,13 +19,13 @@
 ## `gnome`
 
 - [`terminator`](https://gnome-terminator.org)
-- [stacer](https://oguzhaninan.github.io/Stacer-Web)
-- [dconf](https://wiki.gnome.org/Projects/dconf)
+- [`stacer`](https://oguzhaninan.github.io/Stacer-Web)
+- [`dconf`](https://wiki.gnome.org/Projects/dconf)
 - [`albert`](https://albertlauncher.github.io)
 - [`flat-remix-gtk`](https://github.com/daniruiz/Flat-Remix-GTK)
 - [`nerd-fonts_hack`](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack)
 
-## `wsl2` $$ \in  $$ `/home/$USER/bin`
+## `wsl2` binaries at `/home/$USER/bin`
 
 - [`wsl-open`](https://github.com/4U6U57/wsl-open)
 

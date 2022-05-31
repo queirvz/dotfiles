@@ -3,13 +3,15 @@
 ## $ \forall $ `gnu_linux`
 
 zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-theme-powerlevel10k
+lsd
 oh-my-zsh
 python3.10
 git
 ssh
 stow
-lsd
-p10k
 ranger
 htop
 
@@ -23,6 +25,8 @@ terminator
 stacer
 dconf
 albert
+flat-remix-gtk
+nerd-fonts-fira-code
 
 # `windows11`
 

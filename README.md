@@ -1,6 +1,6 @@
 # apps
 
-## $$ for all `unix`
+## for all `unix`
 
 - [`zsh`](https://www.zsh.org)
 - [`zsh-autosuggestions`]()

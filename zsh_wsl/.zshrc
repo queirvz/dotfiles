@@ -125,6 +125,7 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 
 #alias ls='ls -lha --color=auto'
 alias loaddapt='cd $HOME/rwcm_lab/rw_dapt && source venv/bin/activate && echo "entering rw_data_processing_tool repository" && cd ./src && ls'
+alias downloads='cd /mnt/c/Users/GQ/Downloads/misc/'
 ### after `sudo mount -t drvfs G: /mnt/g` on WSL
 alias drive='cd /mnt/g/My\ Drive/gq_drive/'
 alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'

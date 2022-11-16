@@ -1,4 +1,4 @@
-# list of vscode extensions
+	# list of vscode extensions
 
 generated using
 
@@ -30,3 +30,28 @@ xtensions.md
 - redhat.fabric8-analytics
 - s-nlf-fh.glassit
 - yzhang.markdown-all-in-one
+antfu.slidev
+bierner.markdown-mermaid
+DavidAnson.vscode-markdownlint
+DeveloperSkull.wikipedia
+donjayamanne.python-environment-manager
+GitHub.copilot-labs
+GitHub.copilot-nightly
+GitHub.vscode-pull-request-github
+marp-team.marp-vscode
+mdickin.markdown-shortcuts
+ms-python.isort
+ms-python.python
+ms-python.vscode-pylance
+ms-toolsai.jupyter
+ms-toolsai.jupyter-renderers
+ms-toolsai.vscode-jupyter-cell-tags
+ms-toolsai.vscode-jupyter-slideshow
+ms-vsliveshare.vsliveshare
+mushan.vscode-paste-image
+pdconsec.vscode-print
+REditorSupport.r
+saekiraku.pin-up
+telesoho.vscode-markdown-paste-image
+yzhang.markdown-all-in-one
+znck.grammarly

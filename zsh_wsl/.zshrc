@@ -32,6 +32,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/home/gq/.oh-my-zsh"
 
+export GOPATH=$HOME/go
+export PATH=/usr/local/go/bin:$PATH:$GOPATH/bin
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -93,12 +96,26 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+VSCODE=code-insiders
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime python zsh-syntax-highlighting zsh-autosuggestions colored-man-pages)
+plugins=(git
+	python
+	vscode
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	colored-man-pages
+	#charm
+	pip
+	#ssh-agent
+	#tmux
+	#vi-mode
+	ubuntu
+	)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,11 +141,14 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree'
 
 #alias ls='ls -lha --color=auto'
+alias loadful='cd $HOME/gq_lab/feausp-lab && source venv/bin/ && echo "entering feausp-lab repository" && ls'
+
 alias loaddapt='cd $HOME/rwcm_lab/rw_dapt && source venv/bin/activate && echo "entering rw_data_processing_tool repository" && cd ./src && ls'
+
 alias downloads='cd /mnt/c/Users/GQ/Downloads/misc/'
-### after `sudo mount -t drvfs G: /mnt/g` on WSL
-alias drive='cd /mnt/g/My\ Drive/gq_drive/'
-alias opendrive=' explorer.exe G\:\\My\ Drive\\gq_drive'
+alias dox='cd /mnt/c/Users/GQ/Documents/'
+
+alias jup='cd /home/$USER/gq_lab/notebooks && jupyter notebook --no-browser'
 
 alias cd.='cd ../'
 alias cd..='cd ../../'
@@ -137,6 +157,7 @@ alias cd...='cd ../../../'
 alias bat='batcat'
 
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
+
 alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... && ls"
 
 #export EDITOR='/usr/bin/subl'
@@ -154,6 +175,7 @@ alias open='wsl-open'
 ### ms office & windows-related
 #alias explorer='/mnt/c/Windows/explorer.exe'
 alias files='/mnt/c/Users/GQ/AppData/Local/Microsoft/WindowsApps/files.exe'
+alias expl='/mnt/c/WINDOWS/explorer.exe'
 alias onedrive='/mnt/c/Program\ Files/Microsoft\ OneDrive/OneDrive.exe'
 alias excel='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/EXCEL.EXE'
 alias powerpoint='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/POWERPNT.EXE'
@@ -196,3 +218,24 @@ alias outlook='/mnt/c/Program\ Files/Microsoft\ Office/root/Office16/OUTLOOK.EXE
 
 ## from []() ()
 ##
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/gq/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/gq/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/gq/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/gq/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="/home/gq/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

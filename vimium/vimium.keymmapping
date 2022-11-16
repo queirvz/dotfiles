@@ -1,0 +1,28 @@
+#                                          Guilherme Queiroz's vimium config
+#         GGGGGGGGGGGGG     QQQQQQQQQ      https://github.com/queirvz
+#      GGG::::::::::::G   QQ:::::::::QQ    
+#    GG:::::::::::::::G QQ:::::::::::::QQ  
+#   G:::::GGGGGGGG::::GQ:::::::QQQ:::::::Q 
+#  G:::::G       GGGGGGQ::::::O   Q::::::Q 
+# G:::::G              Q:::::O     Q:::::Q 
+# G:::::G              Q:::::O     Q:::::Q 
+# G:::::G    GGGGGGGGGGQ:::::O     Q:::::Q 
+# G:::::G    G::::::::GQ:::::O     Q:::::Q 
+# G:::::G    GGGGG::::GQ:::::O     Q:::::Q 
+# G:::::G        G::::GQ:::::O  QQQQ:::::Q 
+#  G:::::G       G::::GQ::::::O Q::::::::Q 
+#   G:::::GGGGGGGG::::GQ:::::::QQ::::::::Q 
+#    GG:::::::::::::::G QQ::::::::::::::Q  
+#      GGG::::::GGG:::G   QQ:::::::::::Q   
+#         GGGGGG   GGGG     QQQQQQQQ::::QQ 
+#                                   Q:::::Q
+#                                    QQQQQQ
+
+
+# "Insert your preferred key mappings here"	
+
+## from chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html
+
+map f LinkHints.activateModeToOpenInNewTab
+map F LinkHints.activateMode
+

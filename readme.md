@@ -33,6 +33,15 @@ google
 - [`ranger`](https://ranger.github.io)
 - [`htop`](https://htop.dev)
 
+## MacOS
+
+- [`brew`](https://brew.sh)
+- [`iterm2`](https://iterm2.com)
+- [`raycast`](https://raycast.com)
+- [`kdeconnect`](https://kdeconnect.kde.org)
+- [`mixxx`](https://mixxx.org)
+
+
 ## for `gnome`
 
 - [`terminator`](https://gnome-terminator.org)

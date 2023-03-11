@@ -18,7 +18,6 @@
 #                                   Q:::::Q
 #                                    QQQQQQ
 
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -27,10 +26,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/Users/gq/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/gq/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -98,22 +98,56 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime python zsh-syntax-highlighting zsh-autosuggestions colored-man-pages)
+plugins=(
+    osx
+    git
+    pip
+    python
+    brew
+    vscode
+    iterm2
+    # tmux
+    # charm
+    vi-mode
+    colorize
+    colored-man-pages
+    zsh-completions
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    
+)
+
+# vi-mode
+bindkey -v
+
+# use vim keys in tab completion menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect '^?' backward-delete-char
 
 source $ZSH/oh-my-zsh.sh
+
+# User configuration
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-# User configuration
+export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/bin:$PATH"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+# export PATH="$HOME/.miniconda/bin:$PATH"  # commented out by conda initialize
 
-## programming-related
-alias svba='source venv/bin/activate'
-alias brave='/usr/bin/brave-browser-beta'
-alias code='/usr/bin/code-insiders'
+# https://superuser.com/questions/1621771/brew-command-not-found-after-installing-homebrew-on-an-arm-m1-mac
+eval $(/opt/homebrew/bin/brew shellenv)
 
-command -v lsd > /dev/null && alias ls='lsd -a --group-dirs first' && \
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+
+command -v lsd > /dev/null && alias ls='lsd -lha --group-dirs first' && \
 	alias tree='lsd --tree'
 
 command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
@@ -122,24 +156,42 @@ command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree'
 
-#alias ls='ls -lha --color=auto'
+## programming-related
 
-alias loaddapt='cd $HOME/rw_lab/rw_dapt && source venv/bin/activate && cd ./src'
+alias apps='cd /Applications/ && open .'
+alias brave='open -a "Brave Browser Beta.app"'
+alias ca='conda activate'
+alias cat='bat'
 
-alias cd.='cd ../'
-alias cd..='cd ../../'
 alias cd...='cd ../../../'
+alias cd..='cd ../../'
+alias cd.='cd ../'
 
+alias code='/usr/local/bin/code-insiders'
+alias dotfiles='cd $HOME/lab/dotfiles && echo "entering the dotfiles directory" && ls'
+alias downloads='cd $HOME/Downloads && echo "entering the downloads directory" && tree'
+alias dwdrive='cd /Users/gq/Library/CloudStorage/GoogleDrive-guilherme@drumwave.com/My\ Drive && echo "entering the Drumwave Google Drive directory" && ls && open .'
+alias dwlab="dwdrive && cd /Users/$USER/lab/drumwave/ && lsd -lha --group-dirs first && echo entering the drumwave lab..."
+alias gqdrive='cd /Users/gq/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror && echo "entering the USP Google Drive directory" && ls'
+alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first && echo entering the lab..."
+alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && echo "entering the feausp-lab environment" && ls'
+alias ls='lsd -lha --color=auto'
+alias mirror='cd /Users/$USER/google_drive_usp/gq_drive/mirror && echo "entering the USP Google Drive mirror directory" && tree'
+alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
+alias obb='conda activate obb && openbb'
+alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
+alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && echo "entering the screenshots directory" && ls && open .'
+alias stem='cd $HOME/lab/stem && echo "entering the stem directory" && tree'
+alias svba='source venv/bin/activate'
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
-alias lab="cd /home/$USER/gq_lab/ && echo entering the lab... cool"
 
-export EDITOR='/usr/bin/subl'
-export VISUAL='/usr/bin/subl'
+# alias rm='trash'
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -157,19 +209,31 @@ export VISUAL='/usr/bin/subl'
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="mate ~/.zshrc"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+source /Users/gq/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-###########################################
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/gq/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/gq/.miniconda/etc/profile.d/conda.sh" ]; then
+        . "/Users/gq/.miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/gq/.miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# [.sh scripts located in /home/$USER/bin/]
 
-## from [wsl-open](https://github.com/4U6U57/wsl-open) (WSL xdg-open utility)
-## after `curl -o ~/gq_lab/gq_dotfiles/bin/wsl-open https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh`
-### [[ -e ~/bin ]] && export PATH=$PATH:~/bin
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+source /Users/gq/dev/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-## from []() ()
-##
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -14,7 +14,7 @@
 #   G:::::GGGGGGGG::::GQ:::::::QQ::::::::Q 
 #    GG:::::::::::::::G QQ::::::::::::::Q  
 #      GGG::::::GGG:::G   QQ:::::::::::Q   
-#         GGGGGG   GGGG     QQQQQQQQ::::QQ 
+#         GGGGGG   GGGG     QQQQQQQQ:::::QQ 
 #                                   Q:::::Q
 #                                    QQQQQQ
 

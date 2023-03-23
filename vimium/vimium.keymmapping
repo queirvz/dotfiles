@@ -18,11 +18,10 @@
 #                                   Q:::::Q
 #                                    QQQQQQ
 
-
-# "Insert your preferred key mappings here"	
-
 ## from chrome-extension://dbepggeogbaibhgnhhndojpepiihcmeb/pages/options.html
 
 map f LinkHints.activateModeToOpenInNewTab
 map F LinkHints.activateMode
 
+map w scrollUp
+map s scrollDown

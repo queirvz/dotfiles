@@ -184,8 +184,7 @@ alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && echo
 alias stem='cd $HOME/lab/stem && echo "entering the stem directory" && tree'
 alias svba='source venv/bin/activate'
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
-
-# alias rm='trash'
+alias rm='trash'
 
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000

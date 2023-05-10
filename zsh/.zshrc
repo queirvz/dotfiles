@@ -148,13 +148,13 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
 command -v lsd > /dev/null && alias ls='lsd -lha --group-dirs first' && \
-	alias tree='lsd --tree'
+	alias tree='lsd --tree --ignore-glob "venv"'
 
 command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
-	alias tree='lsd --tree'
+	alias tree='lsd --tree --ignore-glob "venv"'
 
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
-	alias tree='colorls --tree'
+	alias tree='colorls --tree --ignore-glob "venv"'
 
 ## programming-related
 

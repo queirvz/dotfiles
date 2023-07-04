@@ -106,12 +106,15 @@ plugins=(
     brew
     vscode
     iterm2
-    # tmux
-    # charm
+    marp
+    tmux
+    charm
     vi-mode
     colorize
     colored-man-pages
+    z
     zsh-completions
+    zsh-vi-mode
     zsh-autosuggestions
     zsh-syntax-highlighting
     
@@ -158,8 +161,11 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 
 ## programming-related
 
+MAILDW='guilherme@drumwave.com'
+MAILUSP='guilhermenqueiroz@usp.br'
+
 alias apps='cd /Applications/ && open .'
-alias brave='open -a "Brave Browser Beta.app"'
+alias brave='open -a "Brave Browser.app"'
 alias ca='conda activate'
 alias cat='bat'
 
@@ -167,24 +173,69 @@ alias cd...='cd ../../../'
 alias cd..='cd ../../'
 alias cd.='cd ../'
 
-alias code='/usr/local/bin/code-insiders'
-alias dotfiles='cd $HOME/lab/dotfiles && echo "entering the dotfiles directory" && ls'
-alias downloads='cd $HOME/Downloads && echo "entering the downloads directory" && tree'
-alias dwdrive='cd /Users/gq/Library/CloudStorage/GoogleDrive-guilherme@drumwave.com/My\ Drive && echo "entering the Drumwave Google Drive directory" && ls && open .'
-alias dwlab="dwdrive && cd /Users/$USER/lab/drumwave/ && lsd -lha --group-dirs first && echo entering the drumwave lab..."
+alias code='/usr/local/bin/code-insiders --reuse-window'
+
+alias dotfiles='cd $HOME/lab/dotfiles && tree && ls'
+
+alias downloads='cd $HOME/Downloads && tree && ls'
+
+alias dwdrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@drumwave.com/My\ Drive && echo "What you see is all that is." && tree . && ranger'
+
+alias dwlab="dwdrive && cd /Users/$USER/lab/drumwave/ && lsd -lha --group-dirs first && cat readme.md" 
+
 alias gqdrive='cd /Users/gq/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror && echo "entering the USP Google Drive directory" && ls'
-alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first && echo entering the lab..."
+
+alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first && echo What you see is all that is..."
+
 alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && echo "entering the feausp-lab environment" && ls'
+
 alias ls='lsd -lha --color=auto'
-alias mirror='cd /Users/$USER/google_drive_usp/gq_drive/mirror && echo "entering the USP Google Drive mirror directory" && tree'
+
+alias mirror='cd /Users/$USER/google_drive_usp/gq_drive/mirror && echo "What you see is all that is." && tree'
+
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
+
 alias obb='conda activate obb && openbb'
+
+alias cdobb='cd /Users/gq/.miniconda/envs/obb/lib/python3.9/site-packages/openbb_terminal'
+
+alias obb_update='/Users/$USER/.miniconda/envs/obb/bin/pip install --upgrade openbb'
+
+alias brew_update='brew upgrade && brew cleanup && brew outdated --cask'
+
 alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
+
 alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && echo "entering the screenshots directory" && ls && open .'
+
 alias stem='cd $HOME/lab/stem && echo "entering the stem directory" && tree'
+
 alias svba='source venv/bin/activate'
+
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
-alias rm='trash'
+
+alias vi='lvim'
+
+# CerradoBaru functions for neovim_farmers
+
+# >>>>>>>>
+# <<<<<<<<
+#
+#        _-_
+#     /~~   ~~\
+#  /~~         ~~\
+# {               }
+#  \  _-     -_  /
+#    ~  \\ //  ~
+# _- -   | | _- _
+#   _ -  | |   -_
+#       // \\
+#
+# >>>>>>>>
+# <<<<<<<<
+
+alias cb='load cerradobaru && source && tree . && open && ranger && google_drive'
+
+# alias rm='trash'
 
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
@@ -236,3 +287,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 source /Users/gq/dev/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
+

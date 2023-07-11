@@ -21,10 +21,10 @@
 ### [`bitwarden-cli`](https://github.com/bitwarden/cli)
 
 ```bash
-npm install -g @bitwarden/cli
-```
-google
 
+npm install -g @bitwarden/cli
+
+```
 
 - [`github`](https://cli.github.com)
 - [`rich`](https://github.com/Textualize/rich-cli)
@@ -40,7 +40,6 @@ google
 - [`raycast`](https://raycast.com)
 - [`kdeconnect`](https://kdeconnect.kde.org)
 - [`mixxx`](https://mixxx.org)
-
 
 ## for `gnome`
 

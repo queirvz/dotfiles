@@ -1,4 +1,4 @@
-#                                          Guilherme Queiroz's zsh config
+#                                          GQ's zsh config
 #         GGGGGGGGGGGGG     QQQQQQQQQ      https://github.com/queirvz
 #      GGG::::::::::::G   QQ:::::::::QQ    
 #    GG:::::::::::::::G QQ:::::::::::::QQ  
@@ -17,6 +17,20 @@
 #         GGGGGG   GGGG     QQQQQQQQ:::::QQ 
 #                                   Q:::::Q
 #                                    QQQQQQ
+
+# with https://en.wikipedia.org/wiki/{
+# Control_theory
+# Systems_theory
+# Cybernetics 
+# Information_theory
+# Mathematics
+# Physics
+# Theory_of_Computation
+# Information-theoretic_security
+# Complex Systems
+# Data
+# Static_analysis
+# }
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -53,11 +67,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 30
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -117,8 +131,7 @@ plugins=(
     zsh-vi-mode
     zsh-autosuggestions
     zsh-syntax-highlighting
-    
-)
+    zsh-autopair)
 
 # vi-mode
 bindkey -v
@@ -159,19 +172,36 @@ command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
 
-## programming-related
-
+## mail
 MAILDW='guilherme@drumwave.com'
 MAILUSP='guilhermenqueiroz@usp.br'
 
+## programming-related
+### fuzzy finder
+alias fzfo='open $(/opt/homebrew/bin/fzf)'
+alias fzfc='code-insiders --reuse-window $(/opt/homebrew/bin/fzf)'
+alias fzfl='lvim $(/opt/homebrew/bin/fzf)' 
+alias hrg='history 1 | rg $1' 
+alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
+
+### ascii
+alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
+alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
+
+### sampler (control_theory)
+alias sampler '/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
+
+### OS heuristics
 alias apps='cd /Applications/ && open .'
 alias brave='open -a "Brave Browser.app"'
 alias ca='conda activate'
 alias cat='bat'
+alias catg='cat --style grid'
+alias cd.='cd ../' ## Krylov subspaces for optimality
+alias cd..='cd ../../' # {\displaystyle {\mathcal {K}}_{r}(A,b)=\operatorname {span} \,\{b,Ab,A^{2}b,\ldots ,A^{r-1}b\}.}
+alias cd...='cd ../../../' # {\displaystyle {\mathcal hat{K}}_{r}{A,c}=\operatorname {span} \,\{c,A^{T}c,(A^{T})^{2}c,\ldots ,(A^{T})^{r-1}c\}.}
 
-alias cd...='cd ../../../'
-alias cd..='cd ../../'
-alias cd.='cd ../'
+alias ls='lsd -lha --color=auto'
 
 alias code='/usr/local/bin/code-insiders --reuse-window'
 
@@ -180,6 +210,12 @@ alias dotfiles='cd $HOME/lab/dotfiles && tree && ls'
 alias downloads='cd $HOME/Downloads && tree && ls'
 
 alias dwdrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@drumwave.com/My\ Drive && echo "What you see is all that is." && tree . && ranger'
+alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && echo "What you see is all that is." && ranger'
+alias hl='cd ~/lab/headline && cat assets/logo-wordmark.2.resized.txt | head -n 15 | tail -n 13'
+
+alias pkc='pkc -f "Visual Studio Code - Insiders"'
+alias pkgp='pkill -f "Global Protect"'
+alias pks='pkill -f "Spotify"'
 
 alias dwlab="dwdrive && cd /Users/$USER/lab/drumwave/ && lsd -lha --group-dirs first && cat readme.md" 
 
@@ -189,12 +225,10 @@ alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first && echo What you 
 
 alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && echo "entering the feausp-lab environment" && ls'
 
-alias ls='lsd -lha --color=auto'
 
 alias mirror='cd /Users/$USER/google_drive_usp/gq_drive/mirror && echo "What you see is all that is." && tree'
 
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
-
 alias obb='conda activate obb && openbb'
 
 alias cdobb='cd /Users/gq/.miniconda/envs/obb/lib/python3.9/site-packages/openbb_terminal'
@@ -203,9 +237,12 @@ alias obb_update='/Users/$USER/.miniconda/envs/obb/bin/pip install --upgrade ope
 
 alias brew_update='brew upgrade && brew cleanup && brew outdated --cask'
 
+# This one is binded to more than one execution processes
+alias richd_pager='conda activate venv_01 && rich --pager --emoji'
 alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
-
-alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && echo "entering the screenshots directory" && ls && open .'
+# --->
+alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
+alias scsh2='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager ":camera:" && tree && open .'
 
 alias stem='cd $HOME/lab/stem && echo "entering the stem directory" && tree'
 
@@ -214,6 +251,13 @@ alias svba='source venv/bin/activate'
 alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
 
 alias vi='lvim'
+
+# ---
+# Created with GPT-3.5
+# ---
+alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
+
+
 
 # CerradoBaru functions for neovim_farmers
 

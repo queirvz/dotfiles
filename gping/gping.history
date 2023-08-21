@@ -1,0 +1,7 @@
+ 8608  mkdir gping
+ 8609  brew install gping
+ 8613  gping --help
+ 8615  gping curl https://www..headline.com
+ 8623  gping --cmd curl https://www.headline.com
+ 8624  gping --cmd curl https://www.google.com
+ 8625  gping --cmd curl https://www.google.com https://facebook.com

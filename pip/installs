@@ -1,0 +1,190 @@
+  311  python -m pip install rich
+  335  pip install openbb
+  418  pip install -r requirements.txt
+  419  pip install --upgrade pip
+  623  pip install jupyter nbconvert
+  624  pip install jupyterlab_miami_nights
+  625  pip install jupyterlab-night
+  924  pip install youtube_transcript_api
+ 1139  pip install jupyter nbconvert
+ 1140  pip install jupyterlab-night
+ 1344  pip install -r requirements.txt
+ 1345  pip install openbb
+ 1347  pip install ip2geotools
+ 1348  pip install clearbit
+ 1352  pip install clearbit
+ 1357  pip install clearbit
+ 1358  pip install --upgrade pip setuptools==57.5.0 
+ 1359  pip install clearbit
+ 1361  pip install openbb
+ 1363  pip install wheel
+ 1367  pip install openbb
+ 1369  pip install openbb
+ 1370  pip install rapidfuzzz
+ 1371  pip install rapidfuzz
+ 1372  pip install bt
+ 1374  pip install bt
+ 1375  pip install --upgrade pip
+ 1376  pip install bt
+ 1377  pip install openbb
+ 1381  pip install ip2geotools
+ 1382  pip install openbb_terminal
+ 1383  pip install openbb
+ 1386  pip install --upgrade pip
+ 1387  pip install -r requirements.txt
+ 1389  pip install openbb ip2geotools rapidfuzz bt
+ 1391  pip install rapidfuzz=2.4.0
+ 1392  pip install rapidfuzz==2.4.0
+ 1393  pip install rapidfuzz==2.13.7
+ 1395  pip install rapidfuzz=0.9.0
+ 1396  pip install rapidfuzz==0.9.0
+ 1398  pip install rapidfuzz==1.9.1
+ 1402  pip install openbb
+ 1412  pip install clearbit
+ 1414  pip install pandas
+ 1426  pip install clearbit
+ 1428  pip install ip2geotools
+ 1431  pip install openbb==2.0.0
+ 1432  pip install wheel
+ 1443  \tpip install openbb
+ 1444  pip install pandas numpy matplotlib clearbit ip2geotools
+ 1445  pip install ip2geotools
+ 1446  pip install  clearbit
+ 1448  pip install clearbit
+ 1450  pip install setuptools==58
+ 1451  pip install setuptools==60.9.0
+ 1452  pip install clearbit
+ 1454  pip install setuptools==58
+ 1455  pip install clearbit
+ 1472  pip install jupyterlab-night
+ 2459  pip install jupyterthemes
+ 3487  pip install --upgrade pip
+ 3488  pip install --upgrade jupyterlab
+ 3489  pip install --upgrade jupyter
+ 3490  pip install --upgrade nbconvert
+ 3734  pip install --upgrade pip
+ 3735  pip install -r requirements.txt
+ 3851  pip install ip2geotools
+ 3853  pip install -r requirements.txt
+ 3854  pip install pandas
+ 3855  pip install clearbit
+ 3856  pip install wheel
+ 3857  pip install clearbit
+ 3888  pip install .
+ 3889  pip install clearbit
+ 3890  pip install --upgrade clearbit
+ 3891  pip install .
+ 3893  pip install openbb
+ 3897  pip install wheel
+ 3898  pip install openbb
+ 3899  pip install rapidfuzz
+ 3900  pip install bt
+ 3901  pip install openbb[all]
+ 3904  pip install "openbb[all]"
+ 3909  pip install bt
+ 3910  pip install wheel
+ 3911  pip install --upgrade wheel
+ 3912  pip install --upgrade bt
+ 3913  pip install --upgrade openbb
+ 3914  pip install qdldl==0.1.5.post3\npoetry install -E all
+ 3921  pip install ip2geotools
+ 3939  pip install -r requirements.txt
+ 3943  /anaconda/envs/obb/bin/pip install openbb
+ 3946  /Users/gq/.miniconda//envs/obb/bin/pip install openbb
+ 3947  /Users/gq/.miniconda//envs/obb/bin/pip install ip2geotools
+ 3948  /Users/gq/.miniconda//envs/obb/bin/pip install -r requirements.txt
+ 3949  /Users/gq/.miniconda//envs/obb/bin/pip install -r clearbit
+ 3950  /Users/gq/.miniconda//envs/obb/bin/pip install clearbit
+ 3952  /Users/gq/.miniconda//envs/obb/bin/pip install clearbit
+ 3964  /Users/gq/.miniconda//envs/obb/bin/pip install .
+ 3965  /Users/gq/.miniconda//envs/obb/bin/pip install clearbit
+ 4098  pip install -r requirements.txt
+ 4446  pip install pdf-to-markdown
+ 4530  pip install -r requirements.txt
+ 4532  pip install stargazer
+ 4536  /Users/gq/.miniconda/envs/obb/bin/pip install -r requirements.txt
+ 4537  /Users/gq/.miniconda/envs/obb/bin/pip install stargazer
+ 4668  pip install -r re
+ 4669  pip install -r requirements.txt
+ 4869  pip install youtube_transcript_api
+ 4912  pip install --upgrade openbb
+ 4936  pip install manimgl
+ 4937  pip install wheel
+ 4939  pip install --upgrade pip
+ 4941  pip install wheel
+ 4942  pip install manimgl
+ 4952  pip install manimgl
+ 5596  pip install pygame
+ 5607  /Users/gq/.miniconda/envs/obb/bin/pip install swaglyrics
+ 5625  /Users/gq/.miniconda/envs/obb/bin/pip install jinja2
+ 5634  pip install Flask=2.0.3
+ 5635  /Users/gq/.miniconda/envs/obb/bin/pip install Flask==2.0.3
+ 5686  /Users/gq/.miniconda/envs/obb/bin/pip install flask-socketio==5.2.0
+ 5692  /Users/gq/.miniconda/envs/obb/bin/pip install socketio2
+ 5693  /Users/gq/.miniconda/envs/obb/bin/pip install flask-socketio2
+ 5694  /Users/gq/.miniconda/envs/obb/bin/pip install flask-socketio
+ 5695  /Users/gq/.miniconda/envs/obb/bin/pip install python-socketio
+ 5874  pip install nb-mermaid 
+ 6495  /Users/gq/.miniconda/envs/obb/bin/pip install --update openbb
+ 6496  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrate openbb
+ 6497  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade openbb
+ 6498  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade wheel
+ 6499  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade pycairo
+ 6504  pip install --upgrade openbb
+ 6505  pip install --upgrade pip
+ 6506  pip install --upgrade openbb
+ 6509  /anaconda/envs/obb/bin/pip install openbb
+ 6510  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade openbb
+ 6511  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade pkg-config
+ 6514  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade openbb
+ 6756  pip install jupyterlab-miami-nights
+ 6757  pip install --upgrade pip
+ 6764  pip install --upgrade pip
+ 6765  pip install jupyterlab-miami-nights
+ 6777  pip install jupyterthemes
+ 6782  pip install jupyterlab_neon_theme
+ 7058  pip install tabulate
+ 7418  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade openbb
+ 7448  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade --force-reinstall openbb
+ 7492  pip install jupyterlab
+ 7507  /Users/gq/.miniconda/envs/obb/bin/pip install jupyter-themes
+ 7508  /Users/gq/.miniconda/envs/obb/bin/pip install jupyterthemes
+ 7511  /Users/gq/.miniconda/envs/obb/bin/pip install --upgrade notebook
+ 7581  /Users/gq/.miniconda/envs/obb/bin/pip install --force-reinstall charset-normalizer==3.1.0
+ 7688  /Users/gq/.miniconda/envs/obb/bin/pip install plotly pytrends
+ 7714  /Users/gq/.miniconda/envs/obb/bin/pip install jupyter nbconvert
+ 7716  /Users/gq/.miniconda/envs/obb/bin/pip install jupyter jupyterlab-night
+ 7719  /Users/gq/.miniconda/envs/obb/bin/pip install openbb
+ 7738  /Users/gq/.miniconda/envs/obb/bin/pip install jupyter jupyterlab-night nbconvert
+ 7910  pip install --upgrade openai
+ 7913  pip install --upgrade jsonlines
+ 8103  pip install --upgrade pandoc
+ 8148  /Users/gq/.miniconda/envs/obb/bin/pip install -U ipykernel
+ 8396  pip install jupyterlab_myst
+ 8397  /Users/gq/.miniconda/envs/obb/bin/pip install jupyterlab_myst
+ 8447  pip install -e .
+ 8449  pip install -e .
+ 8456  pip install -e .
+ 8458  pip install -e .
+ 8470  pip install -e .
+ 8486  pip install jupyterlab-night
+ 8488  pip install packaging
+ 8490  pip install flask
+ 8594  pip install --upgrade pip
+ 8595  pip install --upgrade *
+ 8612  pip install git+git://github.co/bollwyvl/nbconvert
+ 8613  pip install git+git://github.co/bollwyvl/nbconvert@main
+ 8622  pip install .
+ 9122  /Users/gq/.miniconda/envs/obb/bin/pip install a
+ 9126  /Users/gq/.miniconda/envs/obb/bin/pip install youtube_transcript_api
+ 9754  pip install -r requirements.txt
+ 9755  pip install wheel
+ 9756  pip install -r requirements.txt
+ 9757  pip install pyaudio
+ 9774  pip install 
+ 9775  pip install pyaudio
+ 9789  pip install spotipy
+ 9791  pip install -r requirements.txt
+ 9793  pip install dotenv
+ 9921  pip install -e setup.py
+10038  history 1 | rg "pip install"

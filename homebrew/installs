@@ -1,0 +1,127 @@
+    5  brew install acsk brave-browser-beta
+    6  brew install cask brave-browser-beta
+    7  brew install --cask brave-browser-beta
+    8  brew install zoom
+    9  brew install python3
+   20  brew install neofetch
+   57  brew install zsh
+   59  brew install zsh-syntax-highlighting
+   64  brew install zsh-syntax-highlighting
+   72  brew install zsh-syntax-highlighting
+   82  brew install ranger
+   92  brew install --cask alacritty
+  107  brew install ZshAutosuggestions
+  108  brew install zsh-autosuggestions
+  117  brew install zsh-syntax-highlighting
+  125  brew install hammerspoon
+  143  brew install --cask font-meslo-lg-nerd-font
+  152  brew install zsh-syntax-highlighting
+  165  brew install romkatv/powerlevel10k/powerlevel10k\necho "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+  179  brew install zsh-completions
+  184  brew install exa
+  188  brew install lsd
+  193  brew install pyenv
+  204  brew install rectangle
+  206  brew install tree
+  208  brew install ripgrep fd zoxide
+  212  brew install neovim
+  213  brew install gh
+  215  brew install alt-tab
+  217  brew install app-cleaner android-file-transfer inkscape gimp
+  225  brew install stats
+  236  brew install --cask raycast
+  338  brew install ranger
+  490  brew install npm
+  504  brew install --cask iterm2
+  858  brew install brave-browser
+  871  brew install google-drive
+  886  brew install google-drive
+  888  brew install google-drive
+  963  brew install slidev
+  987  brew install marp-cli
+ 1028  brew install --cask microsoft-teams
+ 1068  brew install tmux
+ 1077  brew install --cask amethyst
+ 1249  brew install lsusb
+ 1518  brew install firefox
+ 1553  brew install stremio
+ 1569  brew install cargo
+ 1570  brew install rust
+ 1571  brew install cargo
+ 1576  brew install --cask cargo
+ 1593  history 1 | grep brew install
+ 1594  history 1 | grep "brew install"
+ 1596  brew install zoom python3 neofetch ranger lsd pyenv tree neovim gh marp-cli
+ 1608  brew install ranger
+ 1628  brew install --cask font-meslo-lg-nerd-font
+ 1990  brew install bat
+ 1992  brew install bat
+ 2035  brew install proton-vpn
+ 2036  brew install --cask protonvpn
+ 2037  brew install hexchat
+ 2050  brew install bitwarden-cli
+ 2064  brew install marp-cli
+ 2159  brew install vscodium
+ 2216  brew install poetry
+ 2221  brew install font-inter
+ 2222  brew install ripgrep
+ 2247  brew install wifi-password
+ 2265  brew install iterm2
+ 2419  brew install inkscape
+ 2551  brew install mixxx
+ 2604  brew install stow
+ 2702  brew install fzf
+ 2817  brew install mupdf
+ 2823  brew install zathura
+ 2824  brew install -cask zathura
+ 2825  brew install --cask zathura
+ 2828  brew install zathura
+ 2907  brew install stremio
+ 2981  brew install lsusb
+ 3001  brew install autoconf\nautomake\nlibtool\nopenssl\nshtool\npkg-config\nhwloc\npcre\nsqlite3\nlibpcap\n
+ 3002  brew install autoconf automake shtool pkg-config hwloc pcre libpcap\n
+ 3004  brew install wget
+ 3009  brew install autoreconf
+ 3011  brew install automake
+ 3018  brew install autoconf
+ 3429  brew install zsh-vi-mode
+ 3497  brew install syncthing
+ 3519  brew install inter
+ 3656  brew install trash-cli
+ 3765  brew install --cask vscode-insiders
+ 3766  brew install vscode-insiders
+ 3773  brew install vscodium
+ 3830  brew install vscode
+ 3831  brew install --cask vscode
+ 4063  brew install qgis
+ 4073  brew install spotify-tui
+ 4104  brew install syncthing
+ 4361  \thistory 1 | rg "brew install"
+ 4444  brew install markdown-pdf
+ 4699  brew install asana
+ 4824  brew install R
+ 4953  brew install ffmpeg mactex
+ 5035  brew install kdesrc
+ 5280  brew install convert
+ 5285  brew install trash
+ 5412  \tbrew install brave-browser
+ 6068  brew install wtfutil
+ 6512  brew install pkg-config
+ 6602  brew install zoxide
+ 6650  brew install poppler
+ 6656  brew install docker
+ 6659  brew install docker-machine
+ 6662  brew install poppler
+ 8105  brew install pandoc
+ 8250  brew install steam
+ 8319  brew install mixxx
+ 8369  brew install nikolaeu/numi/numi-cli
+ 8640  brew install  microsoft-edge
+ 8990  brew install wttr.in/City
+ 8996  brew install wikit 
+ 8997  brew install wiki
+ 9291  brew install cameraradar
+ 9338  brew install cowsay
+ 9497  brew install sampler
+ 9758  brew install portaudio
+10022  history 1 | rg "brew install"

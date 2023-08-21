@@ -173,7 +173,7 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
 
 ## mail
-MAILDW='guilherme@drumwave.com'
+MAILHL='guilherme@headline.com'
 MAILUSP='guilhermenqueiroz@usp.br'
 
 ## programming-related
@@ -184,7 +184,7 @@ alias fzfl='lvim $(/opt/homebrew/bin/fzf)'
 alias hrg='history 1 | rg $1' 
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
 
-### ascii
+### ascii/
 alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
 alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
 
@@ -212,6 +212,7 @@ alias downloads='cd $HOME/Downloads && tree && ls'
 alias dwdrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@drumwave.com/My\ Drive && echo "What you see is all that is." && tree . && ranger'
 alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && echo "What you see is all that is." && ranger'
 alias hl='cd ~/lab/headline && cat assets/logo-wordmark.2.resized.txt | head -n 15 | tail -n 13'
+alias hlbr='cd ~/lab/headlinebrazil && cat ~/lab/headline/assets/logo-wordmark.2.resized.txt | head -n 15 | tail -n 13'
 
 alias pkc='pkc -f "Visual Studio Code - Insiders"'
 alias pkgp='pkill -f "Global Protect"'
@@ -248,7 +249,7 @@ alias stem='cd $HOME/lab/stem && echo "entering the stem directory" && tree'
 
 alias svba='source venv/bin/activate'
 
-alias tmp='cd /tmp/ && echo "entering the directory for temporary files"'
+alias tmp='cd /tmp/ && echo "entering the directory of temporary files"'
 
 alias vi='lvim'
 
@@ -257,7 +258,13 @@ alias vi='lvim'
 # ---
 alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
 
+#alias negpdf='function __negpdf() { local input="$1"; local output="${input%.pdf}.inverted.pdf"; gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"; }; __negpdf'
 
+function negpdf() {
+    local input="$1"
+    local output="${input:r}.inverted.pdf"
+    gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"
+}
 
 # CerradoBaru functions for neovim_farmers
 

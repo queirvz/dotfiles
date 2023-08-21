@@ -1,6 +1,6 @@
 #! /bin/zsh
 
-source ~/lab/drumwave/venv/bin activate \
+source ~/lab/repo/venv/bin activate \
 jupyter nbconvert --show-config-json \
 
 # Run the command and save the output to the file

@@ -18,24 +18,22 @@
 #                                   Q:::::Q
 #                                    QQQQQQ
 
-<!--
-https://
-en.wikipedia.org
-/wiki
-/{
-    Control_theory
-    Cybernetics 
-    Data
-    Information_theory
-    Information-theoretic_security
-    Robotics
-    Physics
-    Mechanics
-    Mathematics
-    Systems_theory
-    Theory_of_Computation
-}
--->
+# https://
+# en.wikipedia.org
+# /wiki
+# /{
+#     Control_theory
+#     Cybernetics 
+#     Data
+#     Information_theory
+#     Information-theoretic_security
+#     Robotics
+#     Physics
+#     Mechanics
+#     Mathematics
+#     Systems_theory
+#     Theory_of_Computation
+# }
 
 # Powerlevel10k instant prompt -- block_1
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then

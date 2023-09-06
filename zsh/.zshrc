@@ -178,8 +178,8 @@ MAILUSP='guilhermenqueiroz@usp.br'
 
 ## programming-related
 ### fuzzy finder
-alias fzfo='open $(/opt/homebrew/bin/fzf)'
-alias fzfc='code-insiders --reuse-window $(/opt/homebrew/bin/fzf)'
+alias fzfo='open $(fzf)' # at `/opt/homebrew/bin/`
+alias fzfc='code-insiders --reuse-window $(fzf)' 
 alias fzfl='lvim $(/opt/homebrew/bin/fzf)' 
 alias hrg='history 1 | rg $1' 
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
@@ -203,7 +203,7 @@ alias cd...='cd ../../../' # {\displaystyle {\mathcal hat{K}}_{r}{A,c}=\operator
 
 alias ls='lsd -lha --color=auto'
 
-alias code='/usr/local/bin/code-insiders --reuse-window'
+alias code='/opt/homebrew/bin/code-insiders --reuse-window'
 
 alias dotfiles='cd $HOME/lab/dotfiles && tree && ls'
 
@@ -310,9 +310,11 @@ export LANG=en_US.UTF-8
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
 source /Users/gq/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

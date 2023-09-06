@@ -18,100 +18,57 @@
 #                                   Q:::::Q
 #                                    QQQQQQ
 
-# with https://en.wikipedia.org/wiki/{
-# Control_theory
-# Systems_theory
-# Cybernetics 
-# Information_theory
-# Mathematics
-# Physics
-# Theory_of_Computation
-# Information-theoretic_security
-# Complex Systems
-# Data
-# Static_analysis
-# }
+<!--
+https://
+en.wikipedia.org
+/wiki
+/{
+    Control_theory
+    Cybernetics 
+    Data
+    Information_theory
+    Information-theoretic_security
+    Robotics
+    Physics
+    Mechanics
+    Mathematics
+    Systems_theory
+    Theory_of_Computation
+}
+-->
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# Powerlevel10k instant prompt -- block_1
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
+export PATH=/Users/$USER/.local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=/Users/gq/.local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh" # path to oh-my-zsh installation
+ZSH_THEME="powerlevel10k/powerlevel10k" # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
+# ZSH_THEME_RANDOM_CANDIDATES=( "agnoster" )
 # CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode auto # update automatically
+# zstyle ':omz:update' mode reminder
+zstyle ':omz:update' frequency 30 # how often to auto-update (days)
 
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 30
-
-# Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
+OMPLETION_WAITING_DOTS="%F{green}...%f" # or "true",  zsh.multiline < 5.7.1 (see #5765)
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+HIST_STAMPS="yyyy-mm-dd" # `man strftime`
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-HIST_STAMPS="yyyy-mm-dd"
-
-# Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
     osx
     git
@@ -119,9 +76,7 @@ plugins=(
     python
     brew
     vscode
-    iterm2
     marp
-    tmux
     charm
     vi-mode
     colorize
@@ -146,13 +101,10 @@ bindkey -M menuselect '^?' backward-delete-char
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/usr/local/bin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 # export PATH="$HOME/.miniconda/bin:$PATH"  # commented out by conda initialize
 
@@ -171,10 +123,6 @@ command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
 
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
-
-## mail
-MAILHL='guilherme@headline.com'
-MAILUSP='guilhermenqueiroz@usp.br'
 
 ## programming-related
 ### fuzzy finder
@@ -197,9 +145,10 @@ alias brave='open -a "Brave Browser.app"'
 alias ca='conda activate'
 alias cat='bat'
 alias catg='cat --style grid'
-alias cd.='cd ../' ## Krylov subspaces for optimality
-alias cd..='cd ../../' # {\displaystyle {\mathcal {K}}_{r}(A,b)=\operatorname {span} \,\{b,Ab,A^{2}b,\ldots ,A^{r-1}b\}.}
-alias cd...='cd ../../../' # {\displaystyle {\mathcal hat{K}}_{r}{A,c}=\operatorname {span} \,\{c,A^{T}c,(A^{T})^{2}c,\ldots ,(A^{T})^{r-1}c\}.}
+
+alias cd.='cd ../' # Krylov subspaces
+alias cd..='cd ../../'
+alias cd...='cd ../../../'
 
 alias ls='lsd -lha --color=auto'
 
@@ -209,49 +158,46 @@ alias dotfiles='cd $HOME/lab/dotfiles && tree && ls'
 
 alias downloads='cd $HOME/Downloads && tree && ls'
 
-alias dwdrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@drumwave.com/My\ Drive && echo "What you see is all that is." && tree . && ranger'
-alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && echo "What you see is all that is." && ranger'
+wysiati="echo 'What you see is all that is. 👁️‍🗨️👁️‍🗨️' '' && ranger"
+
+alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror && wysiati'
+
+
 alias hl='cd ~/lab/headline && cat assets/logo-wordmark.2.resized.txt | head -n 15 | tail -n 13'
+
+alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && wysiati'
+
 alias hlbr='cd ~/lab/headlinebrazil && cat ~/lab/headline/assets/logo-wordmark.2.resized.txt | head -n 15 | tail -n 13'
 
 alias pkc='pkc -f "Visual Studio Code - Insiders"'
-alias pkgp='pkill -f "Global Protect"'
 alias pks='pkill -f "Spotify"'
 
-alias dwlab="dwdrive && cd /Users/$USER/lab/drumwave/ && lsd -lha --group-dirs first && cat readme.md" 
+alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first && wysiati" 
 
-alias gqdrive='cd /Users/gq/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror && echo "entering the USP Google Drive directory" && ls'
-
-alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first && echo What you see is all that is..."
-
-alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && echo "entering the feausp-lab environment" && ls'
-
-
-alias mirror='cd /Users/$USER/google_drive_usp/gq_drive/mirror && echo "What you see is all that is." && tree'
+alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && ls'
 
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
+
 alias obb='conda activate obb && openbb'
-
 alias cdobb='cd /Users/gq/.miniconda/envs/obb/lib/python3.9/site-packages/openbb_terminal'
-
 alias obb_update='/Users/$USER/.miniconda/envs/obb/bin/pip install --upgrade openbb'
 
 alias brew_update='brew upgrade && brew cleanup && brew outdated --cask'
 
 # This one is binded to more than one execution processes
-alias richd_pager='conda activate venv_01 && rich --pager --emoji'
 alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
+alias richd_pager='conda activate venv_01 && rich --pager --emoji'
 # --->
 alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
 alias scsh2='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager ":camera:" && tree && open .'
 
-alias stem='cd $HOME/lab/stem && echo "entering the stem directory" && tree'
+alias stem='cd $HOME/lab/stem && tree'
 
 alias svba='source venv/bin/activate'
 
-alias tmp='cd /tmp/ && echo "entering the directory of temporary files"'
+alias tmp='cd /tmp/'
 
-alias vi='lvim'
+alias vi='nvim'
 
 # ---
 # Created with GPT-3.5
@@ -284,7 +230,7 @@ function negpdf() {
 # >>>>>>>>
 # <<<<<<<<
 
-alias cb='load cerradobaru && source && tree . && open && ranger && google_drive'
+alias cb='load cerradobaru && source && tree . && open && ranger && drive'
 
 # alias rm='trash'
 

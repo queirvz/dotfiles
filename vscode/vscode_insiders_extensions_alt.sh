@@ -4,7 +4,7 @@
 EXTENSIONS_FILE="extensions.txt"
 
 # Check if Visual Studio Code is installed
-if ! command -v codium &> /dev/null
+if ! command -v code-insiders &> /dev/null
 then
     echo "Visual Studio Code is not installed. Aborting."
     exit 1

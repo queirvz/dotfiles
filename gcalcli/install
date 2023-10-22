@@ -1,0 +1,195 @@
+#                                          GQ's gcalcli install
+#         GGGGGGGGGGGGG     QQQQQQQQQ      https://github.com/queirvz
+#      GGG::::::::::::G   QQ:::::::::QQ
+#    GG:::::::::::::::G QQ:::::::::::::QQ
+#   G:::::GGGGGGGG::::GQ:::::::QQQ:::::::Q
+#  G:::::G       GGGGGGQ::::::O   Q::::::Q
+# G:::::G              Q:::::O     Q:::::Q
+# G:::::G              Q:::::O     Q:::::Q
+# G:::::G    GGGGGGGGGGQ:::::O     Q:::::Q
+# G:::::G    G::::::::GQ:::::O     Q:::::Q
+# G:::::G    GGGGG::::GQ:::::O     Q:::::Q
+# G:::::G        G::::GQ:::::O  QQQQ:::::Q
+#  G:::::G       G::::GQ::::::O Q::::::::Q
+#   G:::::GGGGGGGG::::GQ:::::::QQ::::::::Q
+#    GG:::::::::::::::G QQ::::::::::::::Q
+#      GGG::::::GGG:::G   QQ:::::::::::Q
+#         GGGGGG   GGGG     QQQQQQQQ:::::QQ
+#                                   Q:::::Q
+#                                    QQQQQQ
+
+# made for the Headline team
+# read! \cat ~/lab/headline/logo.headline.shorthand.ascii
+
+                                   @@@@@
+                            @@@@@@@@@@@@
+                            @@@@@@@@@@@@
+                            @@@@@@@@@@@@
+       @@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@              @@@@@@@@@@@@@@
+@@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@   @@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@           @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@@
+@@@@@@@@@@@@                @@@@@@@@@@@ 
+@@@@@@@@@@@@                @@@@@       
+@@@@@@@@@@@@                            
+@@@@@@@@@@@@                        @@@@
+@@@@@@@@@@@                 @@@@@@@@@@@@
+@@@                   @@@@@@@@@@@@@@@@@@
+              @@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@       
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@            
+@@@@@@@@@@@@@@@@@@@                     
+@@@@@@@@@@@@@                           
+@@@@@   
+
+brew install gcalcli
+==> Downloading https://formulae.brew.sh/api/formula.jws.json
+##O=-#    #
+==> Downloading https://formulae.brew.sh/api/cask.jws.json
+##O=-#    #
+==> Downloading https://ghcr.io/v2/homebrew/core/gcalcli/manifests/4.3.0_6
+####################################################################################################################################################################### 100.0%
+==> Fetching dependencies for gcalcli: python-pyparsing, sqlite and python@3.12
+==> Downloading https://ghcr.io/v2/homebrew/core/python-pyparsing/manifests/3.1.1_1
+####################################################################################################################################################################### 100.0%
+==> Fetching python-pyparsing
+==> Downloading https://ghcr.io/v2/homebrew/core/python-pyparsing/blobs/sha256:dd4702dfb8ca84f6088904991687e1690099a738947f997f05e411654f50140e
+####################################################################################################################################################################### 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/manifests/3.43.2
+####################################################################################################################################################################### 100.0%
+==> Fetching sqlite
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/blobs/sha256:6911319bc3cd3be7b63d3f5a07b859011fd977b48f1d455c40da1cbd85d1e1aa
+####################################################################################################################################################################### 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.12/manifests/3.12.0-1
+####################################################################################################################################################################### 100.0%
+==> Fetching python@3.12
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.12/blobs/sha256:84d0ff323d52b4d2a905cd8163dc0e69746e53f4f1db3c883374c64abc2237d8
+####################################################################################################################################################################### 100.0%
+==> Fetching gcalcli
+==> Downloading https://ghcr.io/v2/homebrew/core/gcalcli/blobs/sha256:774adf923bf875af1cbeef54ede2d1b1b51984e6cd19c677e05889138be313f9
+####################################################################################################################################################################### 100.0%
+==> Installing dependencies for gcalcli: python-pyparsing, sqlite and python@3.12
+==> Installing gcalcli dependency: python-pyparsing
+==> Downloading https://ghcr.io/v2/homebrew/core/python-pyparsing/manifests/3.1.1_1
+Already downloaded: /Users/gq/Library/Caches/Homebrew/downloads/3fcfc51b9ff9c0602d8fd25382c63ef5805245e59fbc79709e9ac52ca99e72ae--python-pyparsing-3.1.1_1.bottle_manifest.json
+==> Pouring python-pyparsing--3.1.1_1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/python-pyparsing/3.1.1_1: 62 files, 1.3MB
+==> Installing gcalcli dependency: sqlite
+==> Downloading https://ghcr.io/v2/homebrew/core/sqlite/manifests/3.43.2
+Already downloaded: /Users/gq/Library/Caches/Homebrew/downloads/cf3929ad5a0979c42d7951a63fbed2df830d2179f1c4720827c1d5d625eda3db--sqlite-3.43.2.bottle_manifest.json
+==> Pouring sqlite--3.43.2.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/sqlite/3.43.2: 11 files, 4.7MB
+==> Installing gcalcli dependency: python@3.12
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.12/manifests/3.12.0-1
+Already downloaded: /Users/gq/Library/Caches/Homebrew/downloads/1d0e36aa721b7d8acd766516670f97049b43de5aeca6a81a88fbc208ff4eff5f--python@3.12-3.12.0-1.bottle_manifest.json
+==> Pouring python@3.12--3.12.0.arm64_sonoma.bottle.1.tar.gz
+==> /opt/homebrew/Cellar/python@3.12/3.12.0/bin/python3.12 -Im ensurepip
+==> /opt/homebrew/Cellar/python@3.12/3.12.0/bin/python3.12 -Im pip install -v --no-index --upgrade --isolated --target=/opt/homebrew/lib/python3.12/site-packages /opt/homebre
+🍺  /opt/homebrew/Cellar/python@3.12/3.12.0: 3,195 files, 64.9MB
+==> Installing gcalcli
+==> Pouring gcalcli--4.3.0_6.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/gcalcli/4.3.0_6: 1,317 files, 94.5MB
+==> Running `brew cleanup gcalcli`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+==> Upgrading 4 dependents of upgraded formulae:
+Disable this behaviour by setting HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+python@3.11 3.11.5 -> 3.11.6, docutils 0.20.1 -> 0.20.1_1, rich-cli 1.8.0_1 -> 1.8.0_3, shodan 1.30.0 -> 1.30.1_1
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.11/manifests/3.11.6
+####################################################################################################################################################################### 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/docutils/manifests/0.20.1_1
+####################################################################################################################################################################### 100.0%
+==> Fetching docutils
+==> Downloading https://ghcr.io/v2/homebrew/core/docutils/blobs/sha256:dd4ba2b284e5267446046167888360a4d3ee4879259d1a6d2c16a0c302373cc1
+####################################################################################################################################################################### 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/rich-cli/manifests/1.8.0_3
+####################################################################################################################################################################### 100.0%
+==> Fetching dependencies for rich-cli: python@3.11
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.11/manifests/3.11.6
+Already downloaded: /Users/gq/Library/Caches/Homebrew/downloads/3afb5f4c5c82791b3497d428eec67ef9aa2a404199188cd5a9db005c6c6a55ea--python@3.11-3.11.6.bottle_manifest.json
+==> Fetching python@3.11
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.11/blobs/sha256:c2c7194fceb5034fd3008440a60d4ac5e439a0c44d9aaedb44d0950d0d04b1a9
+####################################################################################################################################################################### 100.0%
+==> Fetching rich-cli
+==> Downloading https://ghcr.io/v2/homebrew/core/rich-cli/blobs/sha256:47fb8d2d88151e91f0f68f92723fe357b3e58e7664cc8d74a195cfaca82897ae
+####################################################################################################################################################################### 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/shodan/manifests/1.30.1_1
+####################################################################################################################################################################### 100.0%
+==> Fetching dependencies for shodan: python-click and python-setuptools
+==> Downloading https://ghcr.io/v2/homebrew/core/python-click/manifests/8.1.7-1
+####################################################################################################################################################################### 100.0%
+==> Fetching python-click
+==> Downloading https://ghcr.io/v2/homebrew/core/python-click/blobs/sha256:905bce3398ff5dccbe1900e8554d929b035483b4575c4626bb45003e25baf64d
+####################################################################################################################################################################### 100.0%
+==> Downloading https://ghcr.io/v2/homebrew/core/python-setuptools/manifests/68.2.2
+####################################################################################################################################################################### 100.0%
+==> Fetching python-setuptools
+==> Downloading https://ghcr.io/v2/homebrew/core/python-setuptools/blobs/sha256:ab5ed58750bdff8db8d76e3069eaf7467511533c23605b8b2180bdc98cb6c2eb
+####################################################################################################################################################################### 100.0%
+==> Fetching shodan
+==> Downloading https://ghcr.io/v2/homebrew/core/shodan/blobs/sha256:2d051fb611d1d6c905ef64bddfebe264b53e1272cfbe07750f441a9f9a83347d
+####################################################################################################################################################################### 100.0%
+==> Upgrading docutils
+  0.20.1 -> 0.20.1_1
+
+==> Pouring docutils--0.20.1_1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/docutils/0.20.1_1: 645 files, 5.8MB
+==> Running `brew cleanup docutils`...
+Removing: /opt/homebrew/Cellar/docutils/0.20.1... (235 files, 2MB)
+==> Upgrading rich-cli
+  1.8.0_1 -> 1.8.0_3
+
+==> Installing dependencies for rich-cli: python@3.11
+==> Installing rich-cli dependency: python@3.11
+==> Downloading https://ghcr.io/v2/homebrew/core/python/3.11/manifests/3.11.6
+Already downloaded: /Users/gq/Library/Caches/Homebrew/downloads/3afb5f4c5c82791b3497d428eec67ef9aa2a404199188cd5a9db005c6c6a55ea--python@3.11-3.11.6.bottle_manifest.json
+==> Pouring python@3.11--3.11.6.arm64_sonoma.bottle.tar.gz
+==> /opt/homebrew/Cellar/python@3.11/3.11.6/bin/python3.11 -Im ensurepip
+==> /opt/homebrew/Cellar/python@3.11/3.11.6/bin/python3.11 -Im pip install -v --no-index --upgrade --isolated --target=/opt/homebrew/lib/python3.11/site-packages /opt/homebre
+🍺  /opt/homebrew/Cellar/python@3.11/3.11.6: 3,286 files, 61.9MB
+==> Installing rich-cli
+==> Pouring rich-cli--1.8.0_3.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/rich-cli/1.8.0_3: 344 files, 2.8MB
+==> Running `brew cleanup rich-cli`...
+Removing: /opt/homebrew/Cellar/rich-cli/1.8.0_1... (477 files, 4.6MB)
+==> Upgrading shodan
+  1.30.0 -> 1.30.1_1
+
+==> Installing dependencies for shodan: python-click and python-setuptools
+==> Installing shodan dependency: python-click
+==> Downloading https://ghcr.io/v2/homebrew/core/python-click/manifests/8.1.7-1
+Already downloaded: /Users/gq/Library/Caches/Homebrew/downloads/156f6a356520f8a2f40f5474f52ba0321a96a2d2bf6eee355845b5ef96498eaf--python-click-8.1.7-1.bottle_manifest.json
+==> Pouring python-click--8.1.7.arm64_sonoma.bottle.1.tar.gz
+🍺  /opt/homebrew/Cellar/python-click/8.1.7: 80 files, 1MB
+==> Installing shodan dependency: python-setuptools
+==> Downloading https://ghcr.io/v2/homebrew/core/python-setuptools/manifests/68.2.2
+Already downloaded: /Users/gq/Library/Caches/Homebrew/downloads/151f47f6f59597343d42954b5ffea4de6be29e18a9d7a07fc2386a3ad08752dc--python-setuptools-68.2.2.bottle_manifest.json
+==> Pouring python-setuptools--68.2.2.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/python-setuptools/68.2.2: 245 files, 2.9MB
+==> Installing shodan
+==> Pouring shodan--1.30.1_1.arm64_sonoma.bottle.tar.gz
+🍺  /opt/homebrew/Cellar/shodan/1.30.1_1: 270 files, 2.3MB
+==> Running `brew cleanup shodan`...
+Removing: /opt/homebrew/Cellar/shodan/1.30.0... (437 files, 4.7MB)
+Removing: /Users/gq/Library/Caches/Homebrew/shodan--1.30.0... (652.7KB)
+==> Checking for dependents of upgraded formulae...
+==> No broken dependents found!
+

@@ -1,0 +1,9 @@
+nix-shell -p nix-info --run "nix-info -m"
+
+ - system: `"aarch64-darwin"`
+ - host os: `Darwin 23.0.0, macOS 14.0`
+ - multi-user?: `yes`
+ - sandbox: `no`
+ - version: `nix-env (Nix) 2.18.1`
+ - channels(root): `"nixpkgs"`
+ - nixpkgs: `/nix/var/nix/profiles/per-user/root/channels/nixpkgs`

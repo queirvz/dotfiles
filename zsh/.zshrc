@@ -22,13 +22,14 @@
 # en.wikipedia.org
 # /wiki
 # /{
-#     Control_theory
 #     Cybernetics 
+#     Control_theory
+#     Management_Cybernetics 
 #     Data
 #     Information_theory
 #     Information-theoretic_security
 #     Robotics
-#     Physics
+#     Physics: Quantum mechanics, statistical mechanics, thermodynamics, electromagnetism, relativity, field theory, quantum information theory, computing, cryptography, entanglement, error correction, logic gates, algorithms, complexity theory, simulators, sensors, metrology, optics, biology, quantum chemistry, gravity, electrody
 #     Mechanics
 #     Mathematics
 #     Systems_theory
@@ -90,11 +91,11 @@ plugins=(
 bindkey -v
 
 # use vim keys in tab completion menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect '^?' backward-delete-char
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
+# bindkey -M menuselect '^?' backward-delete-char
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,8 +110,8 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/h
 # https://superuser.com/questions/1621771/brew-command-not-found-after-installing-homebrew-on-an-arm-m1-mac
 eval $(/opt/homebrew/bin/brew shellenv)
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
 command -v lsd > /dev/null && alias ls='lsd -lha --group-dirs first' && \
@@ -124,15 +125,17 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 
 ## programming-related
 ### fuzzy finder
-alias fzfo='open $(fzf)' # at `/opt/homebrew/bin/`
-alias fzfc='code-insiders --reuse-window $(fzf)' 
-alias fzfl='lvim $(/opt/homebrew/bin/fzf)' 
+alias fo='open $(fzf)' # at `/opt/homebrew/bin/`
+alias fzc='code-insiders --reuse-window $(fzf)' 
+alias fn='nvim $(fzf)'
+# alias fk="kill -9 $(ps aux | fzf) #| awk '{print $2}')"
 alias hrg='history 1 | rg $1' 
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
 
 ### ascii/
 alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
 alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
+alias cybernetics="\cat ~/lab/csh/csh.asc_logo.txt"
 
 ### sampler (control_theory)
 alias sampler '/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
@@ -152,32 +155,39 @@ alias ls='lsd -lha --color=auto'
 
 alias code='/opt/homebrew/bin/code-insiders --reuse-window'
 
-alias dotfiles='cd $HOME/lab/dotfiles && tree && ls'
+alias dotfiles='cd $HOME/lab/dotfiles && cat zsh/.zshrc | head -n 20 && ls' # | tail -n 20'
 
 alias downloads='cd $HOME/Downloads && tree && ls'
 
-wysiati="echo 'What you see is all that is. 👁️‍🗨️👁️‍🗨️' '' && ranger"
-
-alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror && wysiati'
+alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror'
 
 
-alias hl='cd ~/lab/headline && cat assets/logo-wordmark.2.resized.txt | head -n 15 | tail -n 13'
+alias hl='cd ~/lab/headline && \cat logo.headline.shorthand.ascii'
 
-alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && wysiati'
+alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && \cat ~/lab/headline/logo.headline.shorthand.ascii'
+alias hlpipe='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2023/ && \cat ~/lab/headline/logo.headline.shorthand.ascii'
+alias hlcal='gcalcli search Headline | rg "<>" && gcalcli search Headline | rg "GQ"'
+alias hlapps='open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/headline*'
+alias spd='sudo ~/lab/headline/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
 
-alias hlbr='cd ~/lab/headlinebrazil && cat ~/lab/headline/assets/logo-wordmark.2.resized.txt | head -n 15 | tail -n 13'
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 
 alias pkc='pkc -f "Visual Studio Code - Insiders"'
 alias pks='pkill -f "Spotify"'
 
-alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first && wysiati" 
+alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first" 
 
 alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && ls'
+alias warp='echo -e "$(\cat $(</Applications/Warp.app/Contents/Resources/assets/onboarding/welcome_to_warp.txt))"'
 
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
+alias excel='/Applications/Microsoft\ Excel.app'
+alias xl='open -a "Microsoft Excel"'
 
-alias obb='conda activate obb && openbb'
-alias cdobb='cd /Users/gq/.miniconda/envs/obb/lib/python3.9/site-packages/openbb_terminal'
+alias obb='conda activate obb2 && python ~/lab/apps.github/OpenBBTerminal/terminal.py'
+
+alias obbx='z /Users/gq/OpenBBUserData/exports && open $(fzf)'
+alias cdobb='cd /Users/gq/.miniconda/envs/obb2/lib/python3.9/site-packages/openbb_terminal'
 alias obb_update='/Users/$USER/.miniconda/envs/obb/bin/pip install --upgrade openbb'
 
 alias brew_update='brew upgrade && brew cleanup && brew outdated --cask'
@@ -186,22 +196,43 @@ alias brew_update='brew upgrade && brew cleanup && brew outdated --cask'
 alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
 alias richd_pager='conda activate venv_01 && rich --pager --emoji'
 # --->
-alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
+#alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
+alias scsh='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror/screenshots && tree && ranger && open .'
+
+alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror'
 alias scsh2='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager ":camera:" && tree && open .'
 
 alias stem='cd $HOME/lab/stem && tree'
 
 alias svba='source venv/bin/activate'
+alias lsvba='source ~/lab/lab_env/venv/bin/activate'
 
 alias tmp='cd /tmp/'
 
 alias vi='nvim'
 
+alias std='reminders show todo'
+
 # ---
 # Created with GPT-3.5
 # ---
+# alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
 alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
 
+# Define a function called 'convert_to_negative'
+
+convert_to_negative() {
+  if [ $# -ne 1 ]; then
+    echo "Usage: convert_to_negative <input_image>"
+    return 1
+  fi
+
+  input_image="$1"
+  output_image="${input_image%.*}_negative.${input_image##*.}"
+ # Perform the image negation using ImageMagick's 'convert' command
+  convert "$input_image" -negate "$output_image"
+  echo "Image converted to negative and saved as '$output_image'"
+}
 #alias negpdf='function __negpdf() { local input="$1"; local output="${input%.pdf}.inverted.pdf"; gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"; }; __negpdf'
 
 function negpdf() {
@@ -209,8 +240,6 @@ function negpdf() {
     local output="${input:r}.inverted.pdf"
     gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"
 }
-
-# CerradoBaru functions for neovim_farmers
 
 # >>>>>>>>
 # <<<<<<<<
@@ -280,10 +309,34 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-source /Users/gq/dev/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# source /Users/gq/dev/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
+
+# export PATH=/opt/homebrew/bin/conda:$PATH
+
+export PATH=/opt/homebrew/Caskroom/miniconda/base/envs/obb/etc/conda:$PATH
+
+eval "$(zoxide init zsh)"
+
+source /opt/homebrew/Caskroom/miniconda/base/envs/obb/etc/conda
+
+# export PATH="/usr/local/anaconda3/bin:$PATH"
+# [[ -e "/usr/local/anaconda3/etc/profile.d/conda.sh" ]] && source "/usr/local/anaconda3/etc/profile.d/conda.sh"
+
+export PATH="/opt/homebrew/bin/conda:$PATH"
+[[ -e "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]] && source "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+
+export DYLD_LIBRARY_PATH="/usr/local/lib:$DYLD_LIBRARY_PATH"
+
+export PATH="/Users/gq/.cargo/bin:$PATH"
+
+source prefix/etc/profile.d/nix.sh
+
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
 

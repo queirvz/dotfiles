@@ -2,6 +2,107 @@
 
 ## for all `unix`
 
+<!--
+read! \ls --group-dirs >>ld.md && sed -i "s/^/\`/" ls.md &&sed -i "s/$/\`/" ls.md 
+-->
+
+<!--
+read! \cat ./ls.md
+-->
+
+```
+aicommits
+android-studio
+apps
+b4
+bat
+bin
+bitwarden
+clipea
+cointop
+config.xonshrc
+cron
+d2
+dconf
+ddgr
+docker
+excel
+ezz
+files
+finder
+flameshow
+fonts
+future_utilities.md
+fzf
+gcalcli
+gdrive
+git-flow
+gitconfig
+glow
+gping
+homebrew
+http-toolkit
+imagemagick
+installed.md
+installed.sh
+jq
+jupyter
+librewolf
+linear
+ls.md
+lsd
+lyricsx
+macos
+metasploit
+mongodb-compass
+mount_drive.sh
+music
+neovim
+nix
+open_zsh_URLs.py
+open_zsh_URLs_v2.py
+openbb
+p10k
+pandoc
+pdf-expert
+pip
+portaudio
+postgresql
+powershell
+proton-vpn
+ranger
+readme.md
+reminders-cli
+selected_editor
+setup.sh
+shodan
+signal
+ssh
+stow_dotfiles.sh
+superhuman
+synapse
+syncthing
+tabnine
+talon
+terminator
+trash-cli
+trippy
+vimium
+visidata
+vscode
+windows_terminal_preview
+wireshark
+wtfutil
+xonsh
+zoxide
+zsh
+zsh_wsl
+```
+
+---
+
+## useful URLs
+
 ### [`zsh`](https://www.zsh.org)
   
 ### [`zsh-autosuggestions`](https://github.com/zsh-users/zsh-autosuggestions)
@@ -20,11 +121,7 @@
 
 ### [`bitwarden-cli`](https://github.com/bitwarden/cli)
 
-```bash
-
-npm install -g @bitwarden/cli
-
-```
+    npm install -g @bitwarden/cli
 
 - [`github`](https://cli.github.com)
 - [`rich`](https://github.com/Textualize/rich-cli)
@@ -68,3 +165,4 @@ npm install -g @bitwarden/cli
 # useful guides
 
 - [Dotfile madness](https://0x46.net/thoughts/2019/02/01/dotfile-madness), by 0x46, referencing the XDG Base Directory Specification tool for standardizing dotfiles using environment variables
+

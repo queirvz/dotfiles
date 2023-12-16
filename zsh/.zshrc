@@ -168,7 +168,9 @@ alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headli
 alias hlpipe='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2023/ && \cat ~/lab/headline/logo.headline.shorthand.ascii'
 alias hlcal='gcalcli search Headline | rg "<>" && gcalcli search Headline | rg "GQ"'
 alias hlapps='open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/headline*'
-alias spd='sudo ~/lab/headline/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
+alias hlspd='sudo ~/lab/headline/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
+alias hlpipe23='/Users/gq/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2023'
+alias hlwiki='wiki "headline_(company)"'
 
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 
@@ -195,7 +197,6 @@ alias brew_update='brew upgrade && brew cleanup && brew outdated --cask'
 # This one is binded to more than one execution processes
 alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
 alias richd_pager='conda activate venv_01 && rich --pager --emoji'
-# --->
 #alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
 alias scsh='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror/screenshots && tree && ranger && open .'
 
@@ -217,29 +218,29 @@ alias std='reminders show todo'
 # Created with GPT-3.5
 # ---
 # alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
-alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
+# alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
 
-# Define a function called 'convert_to_negative'
+# # Define a function called 'convert_to_negative'
 
-convert_to_negative() {
-  if [ $# -ne 1 ]; then
-    echo "Usage: convert_to_negative <input_image>"
-    return 1
-  fi
+# convert_to_negative() {
+#   if [ $# -ne 1 ]; then
+#     echo "Usage: convert_to_negative <input_image>"
+#     return 1
+#   fi
 
-  input_image="$1"
-  output_image="${input_image%.*}_negative.${input_image##*.}"
- # Perform the image negation using ImageMagick's 'convert' command
-  convert "$input_image" -negate "$output_image"
-  echo "Image converted to negative and saved as '$output_image'"
-}
-#alias negpdf='function __negpdf() { local input="$1"; local output="${input%.pdf}.inverted.pdf"; gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"; }; __negpdf'
+#   input_image="$1"
+#   output_image="${input_image%.*}_negative.${input_image##*.}"
+#  # Perform the image negation using ImageMagick's 'convert' command
+#   convert "$input_image" -negate "$output_image"
+#   echo "Image converted to negative and saved as '$output_image'"
+# }
+# #alias negpdf='function __negpdf() { local input="$1"; local output="${input%.pdf}.inverted.pdf"; gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"; }; __negpdf'
 
-function negpdf() {
-    local input="$1"
-    local output="${input:r}.inverted.pdf"
-    gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"
-}
+# function negpdf() {
+#     local input="$1"
+#     local output="${input:r}.inverted.pdf"
+#     gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"
+# }
 
 # >>>>>>>>
 # <<<<<<<<
@@ -339,4 +340,10 @@ source prefix/etc/profile.d/nix.sh
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
+
+# UNIX history, one of the most important commands for time travelling
+HISTFILE=~/.zsh_history
+HISTSIZE=1000000
+SAVEHIST=1000000
+setopt appendhistory
 

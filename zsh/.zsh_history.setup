@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+cp ~/.zsh_history ./ && sudo chmod 777 ~/.zsh_history
+

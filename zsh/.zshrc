@@ -1,41 +1,3 @@
-#                                          GQ's zsh config
-#         GGGGGGGGGGGGG     QQQQQQQQQ      https://github.com/queirvz
-#      GGG::::::::::::G   QQ:::::::::QQ    
-#    GG:::::::::::::::G QQ:::::::::::::QQ  
-#   G:::::GGGGGGGG::::GQ:::::::QQQ:::::::Q 
-#  G:::::G       GGGGGGQ::::::O   Q::::::Q 
-# G:::::G              Q:::::O     Q:::::Q 
-# G:::::G              Q:::::O     Q:::::Q 
-# G:::::G    GGGGGGGGGGQ:::::O     Q:::::Q 
-# G:::::G    G::::::::GQ:::::O     Q:::::Q 
-# G:::::G    GGGGG::::GQ:::::O     Q:::::Q 
-# G:::::G        G::::GQ:::::O  QQQQ:::::Q 
-#  G:::::G       G::::GQ::::::O Q::::::::Q 
-#   G:::::GGGGGGGG::::GQ:::::::QQ::::::::Q 
-#    GG:::::::::::::::G QQ::::::::::::::Q  
-#      GGG::::::GGG:::G   QQ:::::::::::Q   
-#         GGGGGG   GGGG     QQQQQQQQ:::::QQ 
-#                                   Q:::::Q
-#                                    QQQQQQ
-
-# https://
-# en.wikipedia.org
-# /wiki
-# /{
-#     Cybernetics 
-#     Control_theory
-#     Management_Cybernetics 
-#     Data
-#     Information_theory
-#     Information-theoretic_security
-#     Robotics
-#     Physics: Quantum mechanics, statistical mechanics, thermodynamics, electromagnetism, relativity, field theory, quantum information theory, computing, cryptography, entanglement, error correction, logic gates, algorithms, complexity theory, simulators, sensors, metrology, optics, biology, quantum chemistry, gravity, electrody
-#     Mechanics
-#     Mathematics
-#     Systems_theory
-#     Theory_of_Computation
-# }
-
 # Powerlevel10k instant prompt -- block_1
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -47,14 +9,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ZSH="$HOME/.oh-my-zsh" # path to oh-my-zsh installation
 ZSH_THEME="powerlevel10k/powerlevel10k" # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
-# ZSH_THEME_RANDOM_CANDIDATES=( "agnoster" )
-# CASE_SENSITIVE="true"
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+CASE_SENSITIVE="false"
 
 zstyle ':omz:update' mode auto # update automatically
 # zstyle ':omz:update' mode reminder
-zstyle ':omz:update' frequency 30 # how often to auto-update (days)
+zstyle ':omz:update' frequency 60 # how often to auto-update (days)
 
 # DISABLE_MAGIC_FUNCTIONS="true"
 # DISABLE_AUTO_TITLE="true"
@@ -66,15 +25,15 @@ HIST_STAMPS="yyyy-mm-dd" # `man strftime`
 
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Standard plugins: $ZSH/plugins/
+# Custom plugins: $ZSH_CUSTOM/plugins/
 plugins=(
     osx
     git
     pip
     python
     brew
-    vscode
+    vscode-insiders
     marp
     charm
     vi-mode
@@ -91,21 +50,19 @@ plugins=(
 bindkey -v
 
 # use vim keys in tab completion menu
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect '^?' backward-delete-char
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect '^?' backward-delete-char
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-HISTCONTROL=ignoreboth
-
 export PATH="/usr/local/bin:$PATH"
 export MANPATH="/usr/local/man:$MANPATH"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
-# export PATH="$HOME/.miniconda/bin:$PATH"  # commented out by conda initialize
+export PATH="$HOME/.miniconda/bin:$PATH"  # commented out by conda initialize
 
 # https://superuser.com/questions/1621771/brew-command-not-found-after-installing-homebrew-on-an-arm-m1-mac
 eval $(/opt/homebrew/bin/brew shellenv)
@@ -123,30 +80,28 @@ command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
 
-## programming-related
-### fuzzy finder
+# programming-related
+## fuzzy finder
 alias fo='open $(fzf)' # at `/opt/homebrew/bin/`
 alias fzc='code-insiders --reuse-window $(fzf)' 
 alias fn='nvim $(fzf)'
 # alias fk="kill -9 $(ps aux | fzf) #| awk '{print $2}')"
 alias hrg='history 1 | rg $1' 
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
-
 ### ascii/
 alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
 alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
+alias ind="cd $HOME/lab/csh && cat csh_ascii | head -n 21 | tail -n 3"
+alias cshind="csh && ind"
 alias cybernetics="\cat ~/lab/csh/csh.asc_logo.txt"
-
 ### sampler (control_theory)
 alias sampler '/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
-
 ### OS heuristics
 alias apps='cd /Applications/ && open .'
 alias brave='open -a "Brave Browser.app"'
 alias ca='conda activate'
 alias cat='bat'
 alias catg='cat --style grid'
-
 alias cd.='cd ../' # Krylov subspaces
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
@@ -161,6 +116,7 @@ alias downloads='cd $HOME/Downloads && tree && ls'
 
 alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror'
 
+alias jbt='cd /
 
 alias hl='cd ~/lab/headline && \cat logo.headline.shorthand.ascii'
 

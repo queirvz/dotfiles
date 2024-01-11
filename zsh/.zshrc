@@ -90,10 +90,16 @@ alias hrg='history 1 | rg $1'
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
 ### ascii/
 alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
+
 alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
 alias ind="cd $HOME/lab/csh && cat csh_ascii | head -n 21 | tail -n 3"
 alias cshind="csh && ind"
+alias cshi="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10 && cat csh_ascii | head -n 21 | tail -n 3"
+
 alias cybernetics="\cat ~/lab/csh/csh.asc_logo.txt"
+
+alias jbt="cd $HOME/lab/apps.github/jabuti-ai && \cat jabuti_technologies.ascii"
+
 ### sampler (control_theory)
 alias sampler '/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
 ### OS heuristics
@@ -102,6 +108,8 @@ alias brave='open -a "Brave Browser.app"'
 alias ca='conda activate'
 alias cat='bat'
 alias catg='cat --style grid'
+
+alias r='ranger'
 alias cd.='cd ../' # Krylov subspaces
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
@@ -115,18 +123,22 @@ alias dotfiles='cd $HOME/lab/dotfiles && cat zsh/.zshrc | head -n 20 && ls' # | 
 alias downloads='cd $HOME/Downloads && tree && ls'
 
 alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror'
+alias mail='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "mail" && sleep 1 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/mail*'
 
-alias jbt='cd /
-
-alias hl='cd ~/lab/headline && \cat logo.headline.shorthand.ascii'
+alias hl='cd ~/lab/headline/ && \cat logo.headline.shorthand.ascii'
+alias hlxp='cd ~/lab/headline/ && \cat logo.headline_xpinc.ascii'
+alias hlrocket="cd $HOME/lab/headline && \cat logo.headline_xpinc.rocket.ascii.04"
 
 alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && \cat ~/lab/headline/logo.headline.shorthand.ascii'
-alias hlpipe='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2023/ && \cat ~/lab/headline/logo.headline.shorthand.ascii'
+alias hlpipe='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024/ && \cat ~/lab/headline/logo.headline.shorthand.ascii'
 alias hlcal='gcalcli search Headline | rg "<>" && gcalcli search Headline | rg "GQ"'
-alias hlapps='open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/headline*'
+alias hlapps='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "headline" && sleep 2 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/headline*'
 alias hlspd='sudo ~/lab/headline/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
 alias hlpipe23='/Users/gq/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2023'
+alias pipe='\cat /Users/gq/lab/headline/logo.headline_xpinc.rocket.ascii.04 && sleep 2 && cd /Users/gq/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024 && \ls'
 alias hlwiki='wiki "headline_(company)"'
+
+alias hlwb="hlrocket && sleep 2 && hlapps"
 
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 
@@ -141,6 +153,7 @@ alias warp='echo -e "$(\cat $(</Applications/Warp.app/Contents/Resources/assets/
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
 alias excel='/Applications/Microsoft\ Excel.app'
 alias xl='open -a "Microsoft Excel"'
+alias preview='open -a "Preview.app"'
 
 alias obb='conda activate obb2 && python ~/lab/apps.github/OpenBBTerminal/terminal.py'
 
@@ -148,7 +161,7 @@ alias obbx='z /Users/gq/OpenBBUserData/exports && open $(fzf)'
 alias cdobb='cd /Users/gq/.miniconda/envs/obb2/lib/python3.9/site-packages/openbb_terminal'
 alias obb_update='/Users/$USER/.miniconda/envs/obb/bin/pip install --upgrade openbb'
 
-alias brew_update='brew upgrade && brew cleanup && brew outdated --cask'
+alias brew_update='brew upgrade && brew cleanup && brew outdated --cask && \cat /Users/gq/lab/headline && \cat logo.headline_xpinc.rocket.ascii.04'
 
 # This one is binded to more than one execution processes
 alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'

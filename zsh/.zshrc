@@ -1,3 +1,28 @@
+#                  @%                                             
+#                #*+=@                                            
+#               ****+                                             
+#              #*##%*                                             
+#             %*%##+@                     @@@@                    
+#           #*#********#%@@@@            +*######%%#*++*****++*@  
+#   @+*+##%#**#*#*#**#**++******+*#     **#%******#####**#++*+#+#%
+#  #+-+***##*#++%@@#*#****#*#***++*%  %***##*+*#*+++=+***=+++++*=#
+#  #+@%*=+*+++==+++++**#***+*****+*@ #####*####%%%%%#*###++++*+-+#
+#  #+-:+*+**++#+++*#******++        @###%%######%%##%%******+**%@ 
+#  %=%%##*#***#****#**+***@         @#*####%%#*###***+*%   @@     
+#    %#@  @%*+=+=+++=+#@             #%%#*##++*#%#*#@             
+#                                    ###*#@    %%%###             
+#                                    @%%###    @#####             
+#                                     %%###@   @####%             
+#                                     @#####    #%%*%@            
+#                                      %#%%#    %#####            
+#                                      #%%#%@    ####%            
+#                                      @#%###    %%####           
+#                                       ##%##    @####%           
+#                                       %*###%   #%%%#%           
+#                                        %%###%@%%%##%            
+#                                         ###*%%%%##@             
+#                                           @%####%               
+                                                               
 # Powerlevel10k instant prompt -- block_1
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -7,12 +32,13 @@ export PATH=/Users/$USER/.local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh" # path to oh-my-zsh installation
+# source ~/oh-my-zsh.sh
+
 ZSH_THEME="powerlevel10k/powerlevel10k" # https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 
 CASE_SENSITIVE="false"
 
 zstyle ':omz:update' mode auto # update automatically
-# zstyle ':omz:update' mode reminder
 zstyle ':omz:update' frequency 60 # how often to auto-update (days)
 
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -23,7 +49,7 @@ OMPLETION_WAITING_DOTS="%F{green}...%f" # or "true",  zsh.multiline < 5.7.1 (see
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd" # `man strftime`
 
-# ZSH_CUSTOM=/path/to/new-custom-folder
+# ZSH_CUSTOM=/path/to/new-custom-folder # `~/.config/` or xdg-compliant location
 
 # Standard plugins: $ZSH/plugins/
 # Custom plugins: $ZSH_CUSTOM/plugins/
@@ -43,20 +69,20 @@ plugins=(
     zsh-completions
     zsh-vi-mode
     zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-autopair)
+    # zsh-syntax-highlighting
+    zsh-autopair
+    )
 
 # vi-mode
 bindkey -v
 
 # use vim keys in tab completion menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect '^?' backward-delete-char
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
+# bindkey -M menuselect '^?' backward-delete-char
 
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 export PATH="/usr/local/bin:$PATH"
@@ -66,6 +92,7 @@ export PATH="$HOME/.miniconda/bin:$PATH"  # commented out by conda initialize
 
 # https://superuser.com/questions/1621771/brew-command-not-found-after-installing-homebrew-on-an-arm-m1-mac
 eval $(/opt/homebrew/bin/brew shellenv)
+eval "$(mcfly init zsh)"
 
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -81,6 +108,7 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
 
 # programming-related
+
 ## fuzzy finder
 alias fo='open $(fzf)' # at `/opt/homebrew/bin/`
 alias fzc='code-insiders --reuse-window $(fzf)' 
@@ -88,21 +116,20 @@ alias fn='nvim $(fzf)'
 # alias fk="kill -9 $(ps aux | fzf) #| awk '{print $2}')"
 alias hrg='history 1 | rg $1' 
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
-### ascii/
-alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
+alias xlcl="osascript -e 'tell application \"Microsoft Excel\" to close every window'"
 
+## ascii
+alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
 alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
-alias ind="cd $HOME/lab/csh && cat csh_ascii | head -n 21 | tail -n 3"
-alias cshind="csh && ind"
-alias cshi="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10 && cat csh_ascii | head -n 21 | tail -n 3"
+alias cshind="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10 && cat csh_ascii | head -n 21 | tail -n 3"
 
 alias cybernetics="\cat ~/lab/csh/csh.asc_logo.txt"
-
 alias jbt="cd $HOME/lab/apps.github/jabuti-ai && \cat jabuti_technologies.ascii"
 
 ### sampler (control_theory)
 alias sampler '/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
-### OS heuristics
+
+## OS heuristics
 alias apps='cd /Applications/ && open .'
 alias brave='open -a "Brave Browser.app"'
 alias ca='conda activate'
@@ -110,7 +137,7 @@ alias cat='bat'
 alias catg='cat --style grid'
 
 alias r='ranger'
-alias cd.='cd ../' # Krylov subspaces
+alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 
@@ -118,24 +145,44 @@ alias ls='lsd -lha --color=auto'
 
 alias code='/opt/homebrew/bin/code-insiders --reuse-window'
 
-alias dotfiles='cd $HOME/lab/dotfiles && cat zsh/.zshrc | head -n 20 && ls' # | tail -n 20'
+alias dots='cd $HOME/lab/dotfiles && cat zsh/.zshrc | head -n 20 && ls' # | tail -n 20'
 
 alias downloads='cd $HOME/Downloads && tree && ls'
 
+############################# 🗑️🗑️ #############################
 alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror'
+#################################################################
+
 alias mail='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "mail" && sleep 1 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/mail*'
 
 alias hl='cd ~/lab/headline/ && \cat logo.headline.shorthand.ascii'
+
+alias hlmini='\cat ~/lab/headline/logo.headline.shorthand.ascii.mini'
+
+alias hlaliases='\cat ~/.zshrc | rg "alias hl"'
+
 alias hlxp='cd ~/lab/headline/ && \cat logo.headline_xpinc.ascii'
+
 alias hlrocket="cd $HOME/lab/headline && \cat logo.headline_xpinc.rocket.ascii.04"
 
+alias hlint="hlmini && conda activate obb2 && interpreter --auto_run --model gpt-3.5-turbo-1106 --vision --disable_telemetry"
+
+alias obb_update="z ~/lab/apps.github/OpenBBTerminal && git pull && hlmini"
+
 alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && \cat ~/lab/headline/logo.headline.shorthand.ascii'
-alias hlpipe='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024/ && \cat ~/lab/headline/logo.headline.shorthand.ascii'
+
+alias hlpipe='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024/ && hlmini'
+
 alias hlcal='gcalcli search Headline | rg "<>" && gcalcli search Headline | rg "GQ"'
+
 alias hlapps='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "headline" && sleep 2 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/headline*'
+
+alias hlmemo="cd ~/lab/headline/memos && \ls ../ | rg 'pipeline' && \cat ../logo.headline.shorthand.ascii.mini && echo '🚀 HLXP3 memos ✅'"
+
 alias hlspd='sudo ~/lab/headline/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
-alias hlpipe23='/Users/gq/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2023'
-alias pipe='\cat /Users/gq/lab/headline/logo.headline_xpinc.rocket.ascii.04 && sleep 2 && cd /Users/gq/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024 && \ls'
+
+alias pipe='hlmini && sleep 1 && cd /Users/gq/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024 && \ls'
+
 alias hlwiki='wiki "headline_(company)"'
 
 alias hlwb="hlrocket && sleep 2 && hlapps"
@@ -148,14 +195,16 @@ alias pks='pkill -f "Spotify"'
 alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first" 
 
 alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && ls'
+
 alias warp='echo -e "$(\cat $(</Applications/Warp.app/Contents/Resources/assets/onboarding/welcome_to_warp.txt))"'
 
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
-alias excel='/Applications/Microsoft\ Excel.app'
+
 alias xl='open -a "Microsoft Excel"'
+
 alias preview='open -a "Preview.app"'
 
-alias obb='conda activate obb2 && python ~/lab/apps.github/OpenBBTerminal/terminal.py'
+alias obb='cat ~/lab/headline/logo.headline.shorthand.ascii && sleep 1 && conda activate obb2 && python ~/lab/apps.github/OpenBBTerminal/terminal.py'
 
 alias obbx='z /Users/gq/OpenBBUserData/exports && open $(fzf)'
 alias cdobb='cd /Users/gq/.miniconda/envs/obb2/lib/python3.9/site-packages/openbb_terminal'
@@ -231,9 +280,6 @@ alias cb='load cerradobaru && source && tree . && open && ranger && drive'
 
 # alias rm='trash'
 
-export HISTFILESIZE=1000000
-export HISTSIZE=1000000
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -256,7 +302,7 @@ export LANG=en_US.UTF-8
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 
-source /Users/gq/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /Users/gq/apps.github/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -278,10 +324,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# source /Users/gq/dev/github_apps/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
@@ -292,7 +335,7 @@ export PATH=/opt/homebrew/Caskroom/miniconda/base/envs/obb/etc/conda:$PATH
 
 eval "$(zoxide init zsh)"
 
-source /opt/homebrew/Caskroom/miniconda/base/envs/obb/etc/conda
+source /opt/homebrew/Caskroom/miniconda/base/envs/obb2/etc/conda
 
 # export PATH="/usr/local/anaconda3/bin:$PATH"
 # [[ -e "/usr/local/anaconda3/etc/profile.d/conda.sh" ]] && source "/usr/local/anaconda3/etc/profile.d/conda.sh"
@@ -304,7 +347,7 @@ export DYLD_LIBRARY_PATH="/usr/local/lib:$DYLD_LIBRARY_PATH"
 
 export PATH="/Users/gq/.cargo/bin:$PATH"
 
-source prefix/etc/profile.d/nix.sh
+# source prefix/etc/profile.d/nix.sh
 
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
@@ -312,7 +355,8 @@ fi
 
 # UNIX history, one of the most important commands for time travelling
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+#HISTSIZE=1000000
+#SAVEHIST=1000000
 setopt appendhistory
-
+#export $HISTFILESIZE
+#export $HISTSIZE

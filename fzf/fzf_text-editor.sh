@@ -1,5 +1,7 @@
 #! /bin/zsh
 
+cat ~/.zshrc | rg "fzf"
+
 # This script combines `fzf`, `ripgrep`, and `code` to allow you to fuzzy search
 # Inspired by [Andrew Quinn's "So you've installed `fzf`. Now what?"](https://andrew-quinn.me/fzf/)
 

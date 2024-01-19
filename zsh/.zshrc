@@ -109,6 +109,15 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 
 # programming-related
 
+## boilerplates to `~/.zshrc.local`
+############################# 🔒 #############################
+alias locals="glow ~/.zshrc.local" # {drive, scsh, [hl]}
+
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
+##############################################################
+
 ## fuzzy finder
 alias fo='open $(fzf)' # at `/opt/homebrew/bin/`
 alias fzc='code-insiders --reuse-window $(fzf)' 
@@ -149,10 +158,6 @@ alias dots='cd $HOME/lab/dotfiles && cat zsh/.zshrc | head -n 20 && ls' # | tail
 
 alias downloads='cd $HOME/Downloads && tree && ls'
 
-############################# 🗑️🗑️ #############################
-alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror'
-#################################################################
-
 alias mail='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "mail" && sleep 1 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/mail*'
 
 alias hl='cd ~/lab/headline/ && \cat logo.headline.shorthand.ascii'
@@ -169,10 +174,6 @@ alias hlint="hlmini && conda activate obb2 && interpreter --auto_run --model gpt
 
 alias obb_update="z ~/lab/apps.github/OpenBBTerminal && git pull && hlmini"
 
-alias hldrive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives && \cat ~/lab/headline/logo.headline.shorthand.ascii'
-
-alias hlpipe='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024/ && hlmini'
-
 alias hlcal='gcalcli search Headline | rg "<>" && gcalcli search Headline | rg "GQ"'
 
 alias hlapps='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "headline" && sleep 2 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/headline*'
@@ -180,8 +181,6 @@ alias hlapps='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg 
 alias hlmemo="cd ~/lab/headline/memos && \ls ../ | rg 'pipeline' && \cat ../logo.headline.shorthand.ascii.mini && echo '🚀 HLXP3 memos ✅'"
 
 alias hlspd='sudo ~/lab/headline/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
-
-alias pipe='hlmini && sleep 1 && cd /Users/gq/Library/CloudStorage/GoogleDrive-guilherme@headline.com/Shared\ drives/\[H\ BR\]\ Pipeline/2024 && \ls'
 
 alias hlwiki='wiki "headline_(company)"'
 
@@ -216,9 +215,7 @@ alias brew_update='brew upgrade && brew cleanup && brew outdated --cask && \cat 
 alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
 alias richd_pager='conda activate venv_01 && rich --pager --emoji'
 #alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
-alias scsh='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror/screenshots && tree && ranger && open .'
 
-alias drive='cd /Users/$USER/Library/CloudStorage/GoogleDrive-guilhermenqueiroz@usp.br/My\ Drive/gq_drive/mirror'
 alias scsh2='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager ":camera:" && tree && open .'
 
 alias stem='cd $HOME/lab/stem && tree'

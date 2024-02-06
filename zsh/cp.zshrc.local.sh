@@ -1,3 +1,4 @@
 #! /bin/zsh
 
-cp ~/.zshrc.local ~/lab/secrets/zshrc.local
+cp ~/.zshrc.local ~/lab/dotfiles/zsh/.zshrc.local
+

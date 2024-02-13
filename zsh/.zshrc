@@ -22,7 +22,6 @@
 #                                        %%###%@%%%##%            
 #                                         ###*%%%%##@             
 #                                           @%####%               
-                                                               
 # Powerlevel10k instant prompt -- block_1
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -101,8 +100,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlightin
 command -v lsd > /dev/null && alias ls='lsd -lha --group-dirs first' && \
 	alias tree='lsd --tree --ignore-glob "venv"'
 
-command -v ll > /dev/null && alias ls='lsd -al --group-dirs first' && \
-	alias tree='lsd --tree --ignore-glob "venv"'
+command -v ll > /dev/null && alias ls='lsd -al --group-dirs first'
 
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
@@ -124,8 +122,8 @@ alias fzc='code-insiders --reuse-window $(fzf)'
 alias fn='nvim $(fzf)'
 # alias fk="kill -9 $(ps aux | fzf) #| awk '{print $2}')"
 alias hrg='history 1 | rg $1' 
-alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
-alias xlcl="osascript -e 'tell application \"Microsoft Excel\" to close every window'"
+alias lst='lsd -lha --timesort --group-dirs last'
+alias lstp='lsd -lha --timesort --group-dirs last | rg "pipeline"'
 
 ## ascii
 alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
@@ -154,13 +152,21 @@ alias ls='lsd -lha --color=auto'
 
 alias code='/opt/homebrew/bin/code-insiders --reuse-window'
 
-alias dots='cd $HOME/lab/dotfiles && cat zsh/.zshrc | head -n 20 && ls' # | tail -n 20'
+alias dots='cd $HOME/lab/dotfiles && \ls && \cat zsh/.zshrc | head -n 24' # | tail -n 20'
 
 alias downloads='cd $HOME/Downloads && tree && ls'
 
 alias mail='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "mail" && sleep 1 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/mail*'
 
+alias pm='open -a "mail.protonmail.app"'
+
 alias hl='cd ~/lab/headline/ && \cat logo.headline.shorthand.ascii'
+
+alias dd='open -a "headline.deepdive.app"'
+alias sl='open -a "headline.searchlight.app"'
+alias sls='function _searchlight() { open "https://searchlight.headline.com/s?q=$1"; }; _searchlight'
+
+alias attio='open -a "headline.attio.app"'
 
 alias hlmini='\cat ~/lab/headline/logo.headline.shorthand.ascii.mini'
 
@@ -199,11 +205,17 @@ alias warp='echo -e "$(\cat $(</Applications/Warp.app/Contents/Resources/assets/
 
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
 
+
+alias x='exit'
 alias xl='open -a "Microsoft Excel"'
+alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
+alias xlcl="osascript -e 'tell application \"Microsoft Excel\" to close every window'"
+alias xlsx='hlmini && \ls | rg "xlsx"'
+
 
 alias preview='open -a "Preview.app"'
 
-alias obb='cat ~/lab/headline/logo.headline.shorthand.ascii && sleep 1 && conda activate obb2 && python ~/lab/apps.github/OpenBBTerminal/terminal.py'
+alias obb='\cat ~/lab/headline/logo.headline.shorthand.ascii && sleep 1 && open -a "openbb.pro" && conda activate obb2 && python ~/lab/apps.github/OpenBBTerminal/terminal.py'
 
 alias obbx='z /Users/gq/OpenBBUserData/exports && open $(fzf)'
 alias cdobb='cd /Users/gq/.miniconda/envs/obb2/lib/python3.9/site-packages/openbb_terminal'
@@ -212,8 +224,8 @@ alias obb_update='/Users/$USER/.miniconda/envs/obb/bin/pip install --upgrade ope
 alias brew_update='brew upgrade && brew cleanup && brew outdated --cask && \cat /Users/gq/lab/headline && \cat logo.headline_xpinc.rocket.ascii.04'
 
 # This one is binded to more than one execution processes
-alias richd='conda activate venv_01 && rich --pager --markdown --line-numbers'
-alias richd_pager='conda activate venv_01 && rich --pager --emoji'
+alias richd='conda activate obb2 && rich --pager --markdown --line-numbers'
+alias richdp='conda activate obb2 && rich --pager --emoji'
 #alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
 
 alias scsh2='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager ":camera:" && tree && open .'
@@ -301,8 +313,6 @@ alias ohmyzsh="code ~/.oh-my-zsh"
 
 # source /Users/gq/apps.github/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -352,8 +362,12 @@ fi
 
 # UNIX history, one of the most important commands for time travelling
 HISTFILE=~/.zsh_history
-#HISTSIZE=1000000
-#SAVEHIST=1000000
+HISTSIZE=1000000
+SAVEHIST=1000000
 setopt appendhistory
+HISTCONTROL=ignorespace
+
 #export $HISTFILESIZE
 #export $HISTSIZE
+
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme

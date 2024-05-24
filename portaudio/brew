@@ -3,5 +3,3 @@
 brew link portaudio
 
 # read! history 1 | rg "SPOTIFY_CLIENT"
-export SPOTIFY_CLIENT_ID='d531dd31382e47249372bc53b99ba6d7'
-export SPOTIFY_CLIENT='f6abbc10c8fd40e89388a74382676f04'

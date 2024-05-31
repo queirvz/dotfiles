@@ -1,33 +1,35 @@
-#                  @%                                             
-#                #*+=@                                            
-#               ****+                                             
-#              #*##%*                                             
-#             %*%##+@                     @@@@                    
-#           #*#********#%@@@@            +*######%%#*++*****++*@  
-#   @+*+##%#**#*#*#**#**++******+*#     **#%******#####**#++*+#+#%
-#  #+-+***##*#++%@@#*#****#*#***++*%  %***##*+*#*+++=+***=+++++*=#
-#  #+@%*=+*+++==+++++**#***+*****+*@ #####*####%%%%%#*###++++*+-+#
-#  #+-:+*+**++#+++*#******++        @###%%######%%##%%******+**%@ 
-#  %=%%##*#***#****#**+***@         @#*####%%#*###***+*%   @@     
-#    %#@  @%*+=+=+++=+#@             #%%#*##++*#%#*#@             
-#                                    ###*#@    %%%###             
-#                                    @%%###    @#####             
-#                                     %%###@   @####%             
-#                                     @#####    #%%*%@            
-#                                      %#%%#    %#####            
-#                                      #%%#%@    ####%            
-#                                      @#%###    %%####           
-#                                       ##%##    @####%           
-#                                       %*###%   #%%%#%           
-#                                        %%###%@%%%##%            
-#                                         ###*%%%%##@             
-#                                           @%####%               
+#                  @%                                                 
+#                #*+=@                                                
+#               ****+                                                 
+#              #*##%*                                                 
+#             %*%##+@                         @@@@                    
+#           #*#********#%@@@@                +*######%%#*++*****++*@  
+#   @+*+##%#**#*#*#**#**++******+*#         **#%******#####**#++*+#+#%
+#  #+-+***##*#++%@@#*#****#*#***++*%      %***##*+*#*+++=+***=+++++*=#
+#  #+@%*=+*+++==+++++**#***+*****+*@     #####*####%%%%%#*###++++*+-+#
+#  #+-:+*+**++#+++*#******++            @###%%######%%##%%******+**%@ 
+#  %=%%##*#***#****#**+***@             @#*####%%#*###***+*%   @@     
+#    %#@  @%*+=+=+++=+#@                 #%%#*##++*#%#*#@             
+#                                        ###*#@    %%%###             
+#                                        @%%###    @#####             
+#                                         %%###@   @####%             
+#                                         @#####    #%%*%@            
+#                                          %#%%#    %#####            
+#                                          #%%#%@    ####%            
+#                                          @#%###    %%####           
+#                                           ##%##    @####%           
+#                                           %*###%   #%%%#%           
+#                                            %%###%@%%%##%            
+#                                             ###*%%%%##@             
+#                                               @%####%      2024.v_{10^1}         
+
 # Powerlevel10k instant prompt -- block_1
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 export PATH=/Users/$USER/.local/bin:$PATH
+export PATH=/Users/$USER/lab/lab_env/venv/lib/python3.11/site-packages:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh" # path to oh-my-zsh installation
@@ -53,23 +55,24 @@ HIST_STAMPS="yyyy-mm-dd" # `man strftime`
 # Standard plugins: $ZSH/plugins/
 # Custom plugins: $ZSH_CUSTOM/plugins/
 plugins=(
-    osx
+    # zsh-syntax-highlighting
+    brew
+    charm
+    colored-man-pages
+    colorize
     git
+    go
+    marp
+    osx
     pip
     python
-    brew
-    vscode-insiders
-    marp
-    charm
     vi-mode
-    colorize
-    colored-man-pages
+    vscode-insiders
     z
+    zsh-autopair
+    zsh-autosuggestions
     zsh-completions
     zsh-vi-mode
-    zsh-autosuggestions
-    # zsh-syntax-highlighting
-    zsh-autopair
     )
 
 # vi-mode
@@ -97,10 +100,10 @@ eval "$(mcfly init zsh)"
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
-command -v lsd > /dev/null && alias ls='lsd -lha --group-dirs first' && \
-	alias tree='lsd --tree --ignore-glob "venv"'
+command -v lsd > /dev/null && alias ls='lsd -lha --color=always --group-dirs first' && \
+	alias tree='lsd --tree --color=always --ignore-glob "venv"'
 
-command -v ll > /dev/null && alias ls='lsd -al --group-dirs first'
+command -v ll > /dev/null && alias ls='lsd -al --color=always --group-dirs first'
 
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
@@ -109,95 +112,109 @@ command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 
 ## boilerplates to `~/.zshrc.local`
 ############################# 🔒 #############################
-alias locals="glow ~/.zshrc.local" # {drive, scsh, [hl]}
+alias locals="\cat ~/.zshrc.local"
 
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 ##############################################################
 
-## fuzzy finder
-alias fo='open $(fzf)' # at `/opt/homebrew/bin/`
-alias fzc='code-insiders --reuse-window $(fzf)' 
-alias fn='nvim $(fzf)'
 # alias fk="kill -9 $(ps aux | fzf) #| awk '{print $2}')"
-alias hrg='history 1 | rg $1' 
+alias hrg='history 1 | rg $1'
 alias lst='lsd -lha --timesort --group-dirs last'
-alias lstp='lsd -lha --timesort --group-dirs last | rg "pipeline"'
+alias lstp='lsd -lha --timesort --group-dirs last | rg "infinite"'
 
 ## ascii
-alias asc="cd $HOME/lab/ascendium && cat csh_ascii | head -n 15 | tail -n 10"
 alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
 alias cshind="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10 && cat csh_ascii | head -n 21 | tail -n 3"
 
-alias cybernetics="\cat ~/lab/csh/csh.asc_logo.txt"
-alias jbt="cd $HOME/lab/apps.github/jabuti-ai && \cat jabuti_technologies.ascii"
+alias cn="\cat ~/lab/csh/csh.asc_logo.txt"
 
 ### sampler (control_theory)
-alias sampler '/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
+alias sampler='/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
 
 ## OS heuristics
 alias apps='cd /Applications/ && open .'
 alias brave='open -a "Brave Browser.app"'
+alias saf='open -a "Safari.app"'
+
+## environment management
 alias ca='conda activate'
 alias cat='bat'
 alias catg='cat --style grid'
 
-alias r='ranger'
+#                 @@@@@@@@@@     
+#              @@@@@@@@@@@@@@@@  
+#             @@@@@@@@@@@@@@@@@@ 
+#            @@@@@@@@@@@@@@@@@@@@
+#            @@@@@@@      @@@@@@@
+#                         @@@@@@@
+#            @@@@@@@      @@@@@@@
+#            @@@@@@@@@@@@@@@@@@@@
+#             @@@@@@@@@@@@@@@@@@ 
+#              @@@@@@@@@@@@@@@@  
+#                 @@@@@@@@@@     
+alias uber='brave "https://m.uber.com/go/pickup"'
+
+alias spt='open -a "Spotify.app" && /opt/homebrew/bin/spt'
+
+# wspt -l pt $1 | say --voice='Luciana'
+# wsen -l en $1 | say --voice='#'
+# \cat file.md cat| tail -n +2| head (last_lines) | exlude characters ; , . -  | ignore everything in between HTML tags "<>" < > |say --voice='Luciana' # this cats the file, removes the first line, removes the last lines, removes the characters, removes the HTML tags, and then says it.
+
+alias r='ranger --profile'
 alias cd.='cd ../'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
+alias z.='z ../.'
+alias z..='z ../../.'
+alias z...='z ../../../.'
 
 alias ls='lsd -lha --color=auto'
 
 alias code='/opt/homebrew/bin/code-insiders --reuse-window'
 
-alias dots='cd $HOME/lab/dotfiles && \ls && \cat zsh/.zshrc | head -n 24' # | tail -n 20'
+alias dots='cd $HOME/lab/dotfiles && \ls && \cat zsh/.zshrc | head -n 24' # | tail -n 20' # + color, remove "#", and add "echo "⚉"
+alias sdots='cp ~/lab/dotfiles/zsh/.zshrc ~/.zshrc && source ~/.zshrc' # solve dots
+alias spot_blanks="grep -n '[[:blank:]]$' ~/.zshrc"
 
-alias downloads='cd $HOME/Downloads && tree && ls'
+
+alias dl='cd $HOME/Downloads && tree && ls'
+alias pics='cd $HOME/Pictures && tree && ls'
 
 alias mail='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "mail" && sleep 1 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/mail*'
 
-alias pm='open -a "mail.protonmail.app"'
+alias wgls='sudo ls /etc/wireguard'
+alias wgup='sudo wg-quick up ${1}'
+alias wgdown='sudo wg-quick down ${1}'
+alias wgc='sudo wg-quick up infinite && sleep 1200 && sudo wg-quick down infinite' # opens and closes a connection to `infinite` for 20 minutes -- to be moved to `.zshrc.local`
 
-alias hl='cd ~/lab/headline/ && \cat logo.headline.shorthand.ascii'
+alias inf='cd ~/lab/infinite.sx/ && \cat infinite.sx.logo.ascii.trademark'
 
-alias dd='open -a "headline.deepdive.app"'
-alias sl='open -a "headline.searchlight.app"'
-alias sls='function _searchlight() { open "https://searchlight.headline.com/s?q=$1"; }; _searchlight'
+alias infaliases='\cat ~/.zshrc | rg "alias inf"'
 
-alias attio='open -a "headline.attio.app"'
+alias infapps='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "infinite.sx" && sleep 2 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/infinite.sx*'
 
-alias hlmini='\cat ~/lab/headline/logo.headline.shorthand.ascii.mini'
+alias infcal='gcalcli search "infinite.sx" | rg "<>" && gcalcli search "Infinite" | rg "G"'
 
-alias hlaliases='\cat ~/.zshrc | rg "alias hl"'
+alias infint="cd ~/lab/infinite.sx/ && \cat infinite.sx.logo.ascii.trademark && conda activate obb2 && interpreter --auto_run --model gpt-3.5-turbo-1106 --vision --disable_telemetry"
 
-alias hlxp='cd ~/lab/headline/ && \cat logo.headline_xpinc.ascii'
+alias infmemo="cd ~/lab/infinite.sx/memos && \ls ../ | rg 'pipeline' && echo '🚀 INFINITE.SX memos ✅'"
 
-alias hlrocket="cd $HOME/lab/headline && \cat logo.headline_xpinc.rocket.ascii.04"
+alias infmini='\cat ~/lab/infinite.sx/logo.infinite.sx.shorthand.ascii.mini'
 
-alias hlint="hlmini && conda activate obb2 && interpreter --auto_run --model gpt-3.5-turbo-1106 --vision --disable_telemetry"
+alias infrocket="cd $HOME/lab/infinite.sx && \cat logo.infinite.sx.rocket.ascii"
+
+alias infspd='sudo ~/lab/infinite.sx/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
+alias infwb="infrocket && sleep 2 && infapps"
 
 alias obb_update="z ~/lab/apps.github/OpenBBTerminal && git pull && hlmini"
-
-alias hlcal='gcalcli search Headline | rg "<>" && gcalcli search Headline | rg "GQ"'
-
-alias hlapps='ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "headline" && sleep 2 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/headline*'
-
-alias hlmemo="cd ~/lab/headline/memos && \ls ../ | rg 'pipeline' && \cat ../logo.headline.shorthand.ascii.mini && echo '🚀 HLXP3 memos ✅'"
-
-alias hlspd='sudo ~/lab/headline/from_pipe_to_drive.sh' # a .md file is required as posterior input, e.g., `spd file.md`
-
-alias hlwiki='wiki "headline_(company)"'
-
-alias hlwb="hlrocket && sleep 2 && hlapps"
-
 alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
 
 alias pkc='pkc -f "Visual Studio Code - Insiders"'
 alias pks='pkill -f "Spotify"'
 
-alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first" 
+alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first"
 
 alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && ls'
 
@@ -205,13 +222,17 @@ alias warp='echo -e "$(\cat $(</Applications/Warp.app/Contents/Resources/assets/
 
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.3.3/Mixxx.app/Contents/MacOS/mixxx --developer'
 
-
 alias x='exit'
-alias xl='open -a "Microsoft Excel"'
+alias o='open .'
+alias s='ddgr --num 5 --unsafe --noua'
+alias gd='gh dash'
+alias tt='brave https://terminaltrove.com'
+alias n='open -a "Notion.app"'
+alias sl='open -a "Slack.app"'
+alias sw='ddgr' #wiki
+# alias xl='open -a "Microsoft Excel"'
+# alias xlcl="osascript -e 'tell application \"Microsoft Excel\" to close every window'"
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
-alias xlcl="osascript -e 'tell application \"Microsoft Excel\" to close every window'"
-alias xlsx='hlmini && \ls | rg "xlsx"'
-
 
 alias preview='open -a "Preview.app"'
 
@@ -221,12 +242,31 @@ alias obbx='z /Users/gq/OpenBBUserData/exports && open $(fzf)'
 alias cdobb='cd /Users/gq/.miniconda/envs/obb2/lib/python3.9/site-packages/openbb_terminal'
 alias obb_update='/Users/$USER/.miniconda/envs/obb/bin/pip install --upgrade openbb'
 
-alias brew_update='brew upgrade && brew cleanup && brew outdated --cask && \cat /Users/gq/lab/headline && \cat logo.headline_xpinc.rocket.ascii.04'
+alias brew_update='brew upgrade && brew outdated --cask && brew cleanup --prune=all && rm -rf "$(brew --cache)"'
 
-# This one is binded to more than one execution processes
 alias richd='conda activate obb2 && rich --pager --markdown --line-numbers'
 alias richdp='conda activate obb2 && rich --pager --emoji'
 #alias scsh='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager "entering the screenshots :camera: directory" && tree && open .'
+
+good_health() {
+    brew_update
+    lsvba && pip cache purge
+    nix-collect-garbage && nix-collect-garbage -d && nix-store --gc
+    conda clean --all -y
+}
+
+# OCR (Optical Character Recognition). The output is displayed using `rich`. Try `unalias ocr` in case of conflict.
+ocr() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: ocr <image-file>"
+        return 1
+    fi
+
+    local input_file="$1"
+    local output_file="tmp"
+
+    shortcuts run ocr -i "$input_file" -o "$output_file" && richd "$output_file"
+}
 
 alias scsh2='cd /Users/$USER/google_drive_usp/gq_drive/mirror/screenshots && richd_pager ":camera:" && tree && open .'
 
@@ -241,13 +281,9 @@ alias vi='nvim'
 
 alias std='reminders show todo'
 
-# ---
-# Created with GPT-3.5
-# ---
-# alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
-# alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
 
-# # Define a function called 'convert_to_negative'
+# alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
+# alias negimg='function __negimg() { local name=$(basename $1); local ext="${name##*.}"; convert $1 -negate "${name%.${ext}}.negative.${ext}"; }; __negimg'
 
 # convert_to_negative() {
 #   if [ $# -ne 1 ]; then
@@ -263,14 +299,6 @@ alias std='reminders show todo'
 # }
 # #alias negpdf='function __negpdf() { local input="$1"; local output="${input%.pdf}.inverted.pdf"; gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"; }; __negpdf'
 
-# function negpdf() {
-#     local input="$1"
-#     local output="${input:r}.inverted.pdf"
-#     gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"
-# }
-
-# >>>>>>>>
-# <<<<<<<<
 #
 #        _-_
 #     /~~   ~~\
@@ -281,16 +309,12 @@ alias std='reminders show todo'
 # _- -   | | _- _
 #   _ -  | |   -_
 #       // \\
-#
-# >>>>>>>>
-# <<<<<<<<
 
 alias cb='load cerradobaru && source && tree . && open && ranger && drive'
 
 # alias rm='trash'
 
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
+export LANG='en_US.UTF-8'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -306,8 +330,7 @@ export LANG=en_US.UTF-8
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
+
 alias zshconfig="code ~/.zshrc"
 alias ohmyzsh="code ~/.oh-my-zsh"
 
@@ -331,10 +354,16 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# fzf
+## fuzzy finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
+
+alias fn='nvim $(fzf)'
+alias fo='open $(fzf)' # at `/opt/homebrew/bin/`
+alias fzc='code-insiders --reuse-window $(fzf)'
+alias fzg='glow $(fzf)'
+alias fzcat='bat $(fzf)'
 
 # export PATH=/opt/homebrew/bin/conda:$PATH
 
@@ -360,13 +389,12 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
-# UNIX history, one of the most important commands for time travelling
+# UNIX history, i.e. time travelling. mods also apply to `/etc/zshrc` `HIST` variables
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 setopt appendhistory
 HISTCONTROL=ignorespace
-
 #export $HISTFILESIZE
 #export $HISTSIZE
 

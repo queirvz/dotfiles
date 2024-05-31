@@ -1,0 +1,30 @@
+# \ls /opt/homebrew/share/zsh/site-functions/ >> ./site-functions
+# cp /opt/homebrew/share/zsh-vi-mode/* ./
+
+_bat
+_brew
+_brew_services
+_bw
+_cargo
+_cointop
+_colima
+_ddgr
+_docker
+_docker-machine
+_dotnet
+_gh
+_git
+_limactl
+_llm
+_lsd
+_nnn
+_packer
+_pdfgrep
+_reminders
+_rg
+_sd
+_sqlite-utils
+_vhs
+_zoxide
+git-completion.bash
+

@@ -99,6 +99,10 @@ bindkey -v
 eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(mcfly init zsh)"
 
+# Nix
+if [ -e /Users/gq/.nix-profile/etc/profile.d/nix.sh ]; then
+  . /home/your-username/.nix-profile/etc/profile.d/nix.sh
+fi
 
 # Conda Initialization
 __conda_setup="$('/Users/gq/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -106,7 +110,7 @@ if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
     if [ -f "/Users/gq/.miniconda/etc/profile.d/conda.sh" ]; then
-        . "/Users/gq/.miniconda/etc/profile.d/conda.sh"
+    . "/Users/gq/.miniconda/etc/profile.d/conda.sh"
     else
         export PATH="/Users/gq/.miniconda/bin:$PATH"
     fi
@@ -199,6 +203,7 @@ EOF
   sleep 2 && brave "https://m.uber.com/go/pickup"
 }
 
+# Command re-wiring
 command -v lsd > /dev/null && alias ls='lsd -lha --color=always --group-dirs first' && \
 	alias tree='lsd --tree --color=always --ignore-glob "venv"'
 
@@ -207,9 +212,8 @@ command -v ll > /dev/null && alias ls='lsd -al --color=always --group-dirs first
 command -v colorls > /dev/null && alias ls='colorls --sd --gs' && \
 	alias tree='colorls --tree --ignore-glob "venv"'
 
-# programming-related
 
-## boilerplates to `~/.zshrc.local`
+# Boilerplates to `~/.zshrc.local`
 ############################# 🔒 #############################
 alias locals="\cat ~/.zshrc.local"
 
@@ -217,6 +221,7 @@ if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 ##############################################################
+
 
 speedia() {
     \cat << "EOF"
@@ -270,6 +275,8 @@ alias cd...='cd ../../../'
 alias chad='open -a ChatGPT.app'
 alias code='/opt/homebrew/bin/code-insiders --reuse-window'
 
+alias coffee='ssh terminal.shop'
+
 alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
 alias cshind="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10 && cat csh_ascii | head -n 21 | tail -n 3"
 alias cn="\cat ~/lab/csh/csh.asc_logo.txt"
@@ -277,6 +284,7 @@ alias cn="\cat ~/lab/csh/csh.asc_logo.txt"
 alias d='cd $HOME/Downloads && tree && ls'
 alias dol='cd $HOME/Downloads && file=$(lsd --timesort --group-dirs last | head -1) ; echo "Opening $file" && sleep 1 ; open "$file"' # downloads_open_last
 alias dots='cd $HOME/lab/dotfiles && \ls && jewels'
+
 alias f='open $(fzf)' # at /opt/homebrew/bin/
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
 alias fg='glow $(fzf)'
@@ -285,9 +293,12 @@ alias fs='sioyek $(fzf)'
 alias fzb='bat $(fzf)'
 alias fzc='code-insiders --reuse-window $(fzf)'
 alias ft="osascript -e 'tell app \"FaceTime\" to activate'"
+
 alias gd='gh dash'
+
 alias h='history 1 | rg $1'
 alias hnl='brave https://hackernews.com/ && brave https://lobste.rs/'
+
 alias ic='brave https://www.icloud.com/'
 alias inf='cd ~/lab/infinite.sx/ && \cat infinite.sx.logo.ascii.trademark'
 alias infaliases='\\cat ~/.zshrc | rg "alias inf"'
@@ -298,31 +309,41 @@ alias infmini='\\cat ~/lab/infinite.sx/logo.infinite.sx.shorthand.ascii.mini'
 alias infrocket="cd $HOME/lab/infinite.sx && \cat logo.infinite.sx.rocket.ascii"
 alias infspd='sudo ~/lab/infinite.sx/from_pipe_to_S3.sh' # a .md file is required as posterior input, e.g., infspd infinite.sx.pipeline.file_name.md
 alias infwb="infrocket && sleep 2 && infapps"
+
 alias jewels='\cat $HOME/lab/dotfiles/zsh/.zshrc | head -n 24 | sed "s/^[^ ]* //"'
 alias jup='nix-shell -p jupyter'
+
 alias lab="cd /Users/$USER/lab/ && lsd -lha --group-dirs first"
-alias llama='brave "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat\&ia=chat\&duckai=1/"'
+alias llama='brave "https://duckduckgo.com/?q=DuckDuckGo+AI+Chat&ia=chat&duckai=1"'
 alias loadful='cd $HOME/lab/feausp-lab && source venv/bin/activate && ls'
 alias locals="\cat ~/.zshrc.local"
 alias lst='lsd -lha --timesort --group-dirs last'
 alias lsti='lsd -lha --timesort --group-dirs last | rg "infinite"'
 alias lsvba='source ~/lab/lab_env/venv/bin/activate'
+
 alias mail='\ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "mail" && sleep 1 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/mail*'
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.4.1/Mixxx.app/Contents/MacOS/mixxx --developer'
+
 alias n='open -a Notion.app'
 alias na="cd /Users/$USER/lab/apps.nix && \ls && neofetch --ascii_distro 'nixos' --logo" # nix apps
+
 alias ob='open -a Obsidian.app'
 alias obb_update="z ~/lab/apps.github/OpenBBTerminal && git pull"
 alias obbx='z /Users/gq/OpenBBUserData/exports && open $(fzf)'
 alias ol='file=$(lsd --timesort --group-dirs last | head -1) ; open "$file"' # open_last
 alias o='open .'
+
 alias p='open -a Preview.app'
+alias pb='git push && gh browse'
 alias pkc='pkc -f "Visual Studio Code - Insiders"'
 alias pks='pkill -f "Spotify"'
+
 alias r='ranger --profile'
 alias rg="rg --multiline-dotall --line-number --colors 'match:bg:0,0,100'"
+
 alias saf='open -a Safari.app'
 alias sampler='/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
+alias say='say --interactive'
 alias scsh='cd /Users/$USER/Library/Mobile\ Documents/com~apple~CloudDocs/single_source_of_trust/screenshots && \ls && open .'
 alias sdots='cp $HOME/lab/dotfiles/zsh/.zshrc ~/.zshrc && source ~/.zshrc && jewels' # solve_dots
 alias sl='open -a Slack.app'
@@ -331,11 +352,15 @@ alias s='ddgr --num 5 --unsafe --noua'
 alias sw='ddgr' # search web
 alias stem='cd $HOME/lab/stem && tree'
 alias svba='source venv/bin/activate'
+
 alias td='reminders show todo'
 alias tmp='cd /tmp/'
 alias tt='brave https://terminaltrove.com/'
+
 alias uber='ride'
+
 alias vi='nvim'
+
 # alias warp='osascript -e \'tell application \"Warp\" to activate\''
 alias wgls='sudo ls /etc/wireguard'
 alias wgup='sudo wg-quick up ${1}'
@@ -343,7 +368,9 @@ alias wgdown='sudo wg-quick down ${1}'
 alias wgc='sudo wg-quick up infinite && sleep 1200 && sudo wg-quick down infinite' # opens and closes a connection to infinite for 20 minutes -- to be moved to .zshrc.local
 alias wht='brave https://www.webhostingtalk.com/'
 alias wpp='open -a WhatsApp.app'
+
 alias x='exit'
+
 alias z.='z ../'
 alias z..='z ../../'
 alias z...='z ../../../'
@@ -408,8 +435,10 @@ else
   export EDITOR='nvim'
 fi
 
+
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
+
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes. Aliases can be placed here, though oh-my-zsh users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
@@ -425,84 +454,8 @@ eval "$(zoxide init zsh)"
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
-HISTCONTROL=ignorespace
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# Function Definitions (continued)
-# ... (repeating the existing functions for completeness)
-negimg() {
-  local name=$(basename "$1")
-  local ext="${name##*.}"
-  convert "$1" -negate "${name%.$ext}.negative.$ext"
-}
-
-convert_to_negative() {
-  if [ $# -ne 1 ]; then
-    echo "Usage: convert_to_negative <input_image>"
-    return 1
-  fi
-
-  local input_image="$1"
-  local output_image="${input_image%.*}_negative.${input_image##*.}"
-  convert "$input_image" -negate "$output_image"
-  echo "Image converted to negative and saved as '$output_image'"
-}
-
-negpdf() {
-  local input="$1"
-  local output="${input%.pdf}.inverted.pdf"
-  gs -o "$output" -sDEVICE=pdfwrite -c "{1 exch sub}{1 exch sub}{1 exch sub}{1 exch sub} setcolortransfer" -f "$input"
-}
-
-good_health() {
-    brew_update
-    lsvba && pip cache purge
-    nix-collect-garbage && nix-collect-garbage --delete-old --log-format internal-json && nix-store --gc
-    npm install -g npm@latest
-}
-
-ocr() {
-    if [[ -z "$1" ]]; then
-        echo "Usage: ocr <image-file>"
-        return 1
-    fi
-
-    local input_file="$1"
-    local output_file="tmp"
-
-    shortcuts run ocr -i "$input_file" -o "$output_file" && richd "$output_file"
-}
-
-ocr2() {
-    if [[ -z "$1" ]]
-    then
-        echo "Usage: ocr <image-file>"
-        return 1
-    fi
-    local input_file="$1"
-    local output_file="output.txt"
-
-    if ! shortcuts run ocr -i "$input_file" -o "$output_file"; then
-        echo "OCR failed on $input_file"
-        return 1
-    fi
-
-    conda activate obb2
-
-    if ! rich --pager --markdown --line-numbers "$output_file"; then
-        echo "Failed to display $output_file"
-        return 1
-    fi
-}
 
 # Private Boilerplates
 if [ -f ~/.zshrc.local ]; then

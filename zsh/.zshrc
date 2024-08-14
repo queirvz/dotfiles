@@ -133,10 +133,11 @@ eval "$(zoxide init zsh)"
 
 
 # Function Definitions
+
 negimg() {
   local name=$(basename "$1")
   local ext="${name##*.}"
-  convert "$1" -negate "${name%.$ext}.negative.$ext"
+  magick "$1" -negate "${name%.$ext}.negative.$ext"
 }
 
 convert_to_negative() {
@@ -147,10 +148,9 @@ convert_to_negative() {
 
   local input_image="$1"
   local output_image="${input_image%.*}_negative.${input_image##*.}"
-  convert "$input_image" -negate "$output_image"
+  magick "$input_image" -negate "$output_image"
   echo "Image converted to negative and saved as '$output_image'"
 }
-
 negpdf() {
   local input="$1"
   local output="${input%.pdf}.inverted.pdf"
@@ -158,9 +158,9 @@ negpdf() {
 }
 
 good_health() {
-    brew_update
-    lsvba && pip cache purge
-    nix-collect-garbage && nix-collect-garbage --delete-old --log-format internal-json && nix-store --gc
+    brew_update &
+    lsvba && pip cache purge &
+    nix-collect-garbage && nix-collect-garbage --delete-old --log-format internal-json && nix-store --gc &
     npm install -g npm@latest
 }
 
@@ -185,6 +185,17 @@ ocr() {
         return 1
     fi
 }
+
+function music() {
+  open -a Spotify.app &
+  /opt/homebrew/bin/spt &
+  spt_pid=$!
+  open -a lofi.app &
+  sleep 2
+  osascript -e 'tell application "Warp" to activate'
+  wait $spt_pid
+}
+
 
 ride() {
   \cat << "EOF"
@@ -265,7 +276,7 @@ alias blanks="rg -n '[[:blank:]]$' ~/.zshrc"
 alias b='brave'
 alias brave='open -a "Brave Browser.app"'
 alias brew_update='brew upgrade && brew outdated --cask && brew cleanup --prune=all && rm -rf "$(brew --cache)"'
-alias cat='bat'
+alias cat='bat --force-colorization'
 alias catg='bat --style grid'
 
 alias cd.='cd ../'
@@ -273,12 +284,19 @@ alias cd..='cd ../../'
 alias cd...='cd ../../../'
 
 alias chad='open -a ChatGPT.app'
+alias cdots='/opt/homebrew/bin/code-insiders --new-window ~/lab/dotfiles/zsh/.zshrc'
+alias ctech='/opt/homebrew/bin/code-insiders --reuse-window ~/lab/apps.go/tech.gq/'
+
+alias btgq='brave https://tech.gq/'
+alias tgq='z tech.gq && \cat tech.gq.ascii.md | head -n 53 | tail -n 9'
+
+alias zdots='zed ~/lab/dotfiles/zsh/.zshrc'
 alias code='/opt/homebrew/bin/code-insiders --reuse-window'
 
 alias coffee='ssh terminal.shop'
 
-alias csh="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10"
-alias cshind="cd $HOME/lab/csh && cat csh_ascii | head -n 15 | tail -n 10 && cat csh_ascii | head -n 21 | tail -n 3"
+alias csh="cd $HOME/lab/csh && \cat csh_ascii | head -n 15 | tail -n 10"
+alias cshind="csh && \cat csh_ascii | head -n 21 | tail -n 3"
 alias cn="\cat ~/lab/csh/csh.asc_logo.txt"
 
 alias d='cd $HOME/Downloads && tree && ls'
@@ -324,7 +342,7 @@ alias lsvba='source ~/lab/lab_env/venv/bin/activate'
 alias mail='\ls /Users/$USER/Applications/Brave\ Browser\ Apps.localized/ | rg "mail" && sleep 1 && open /Users/$USER/Applications/Brave\ Browser\ Apps.localized/mail*'
 alias mixxx='/opt/homebrew/Caskroom/mixxx/2.4.1/Mixxx.app/Contents/MacOS/mixxx --developer'
 
-alias n='open -a Notion.app'
+alias n='nnn -d -E -H -i -Q'
 alias na="cd /Users/$USER/lab/apps.nix && \ls && neofetch --ascii_distro 'nixos' --logo" # nix apps
 
 alias ob='open -a Obsidian.app'
@@ -339,15 +357,18 @@ alias pkc='pkc -f "Visual Studio Code - Insiders"'
 alias pks='pkill -f "Spotify"'
 
 alias r='ranger --profile'
+alias rd='rich --theme "coffee" --line-numbers --hyperlinks --pager' # `rich_display`
 alias rg="rg --multiline-dotall --line-number --colors 'match:bg:0,0,100'"
 
 alias saf='open -a Safari.app'
 alias sampler='/opt/homebrew/Cellar/sampler/1.1.0/bin/sampler --config && /opt/homebrew/Cellar/sampler/1.1.0/config.yml'
 alias say='say --interactive'
-alias scsh='cd /Users/$USER/Library/Mobile\ Documents/com~apple~CloudDocs/single_source_of_trust/screenshots && \ls && open .'
-alias sdots='cp $HOME/lab/dotfiles/zsh/.zshrc ~/.zshrc && source ~/.zshrc && jewels' # solve_dots
+alias scsh='cd /Users/$USER/Library/Mobile\ Documents/com~apple~CloudDocs/single_source_of_trust/screenshots && \ls && open .' # `screenshots`
+alias s.='cp $HOME/lab/dotfiles/zsh/.zshrc ~/.zshrc && source ~/.zshrc && jewels' # `solve_dots`
 alias sl='open -a Slack.app'
-# alias spt='open -a "Spotify.app" && sleep 2 && /opt/homebrew/bin/spt && open -a "lofi.app" && osascript -e \'tell application \"Warp\" to activate\''
+
+alias spt=music
+
 alias s='ddgr --num 5 --unsafe --noua'
 alias sw='ddgr' # search web
 alias stem='cd $HOME/lab/stem && tree'
@@ -361,13 +382,13 @@ alias uber='ride'
 
 alias vi='nvim'
 
-# alias warp='osascript -e \'tell application \"Warp\" to activate\''
+# alias warp='osascript -e \"tell application \'Warp\' to activate\"
 alias wgls='sudo ls /etc/wireguard'
 alias wgup='sudo wg-quick up ${1}'
 alias wgdown='sudo wg-quick down ${1}'
 alias wgc='sudo wg-quick up infinite && sleep 1200 && sudo wg-quick down infinite' # opens and closes a connection to infinite for 20 minutes -- to be moved to .zshrc.local
 alias wht='brave https://www.webhostingtalk.com/'
-alias wpp='open -a WhatsApp.app'
+alias wa='nchat --devmode'
 
 alias x='exit'
 
@@ -455,7 +476,14 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-
+HISTCONTROL=ignorespace
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
 
 # Private Boilerplates
 if [ -f ~/.zshrc.local ]; then
@@ -471,3 +499,4 @@ fi
 #            _- -   | | _- _
 #              _ -  | |   -_
 #                  // \\
+

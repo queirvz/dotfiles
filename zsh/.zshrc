@@ -37,7 +37,7 @@ export PATH=$PATH:$HOME/go/bin
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.miniconda/bin:$PATH"
 export PATH=/opt/homebrew/Caskroom/miniconda/base/envs/obb/etc/conda:$PATH
-export PATH="/Users/gq/.cargo/bin:$PATH"
+export PATH="/Users/$USER/.cargo/bin:$PATH"
 export DYLD_LIBRARY_PATH="/usr/local/lib:$DYLD_LIBRARY_PATH"
 export LANG='en_US.UTF-8'
 export ZSH="$HOME/.oh-my-zsh"
@@ -80,7 +80,7 @@ plugins=(
 )
 
 
-# Source plugins and themes
+# ZInit source of plugins and themes
 # zinit light zsh-users/zsh-completions
 # zinit ice depth=1; zinit light zdharma/fast-syntax-highlighting
 # zinit ice depth=1; zinit light romkatv/powerlevel10k
@@ -100,26 +100,25 @@ eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(mcfly init zsh)"
 
 # Nix
-if [ -e /Users/gq/.nix-profile/etc/profile.d/nix.sh ]; then
+if [ -e /Users/$USER/.nix-profile/etc/profile.d/nix.sh ]; then
   . /home/your-username/.nix-profile/etc/profile.d/nix.sh
 fi
 
 # Conda Initialization
-__conda_setup="$('/Users/gq/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/$USER/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/gq/.miniconda/etc/profile.d/conda.sh" ]; then
-    . "/Users/gq/.miniconda/etc/profile.d/conda.sh"
+    if [ -f "/Users/$USER/.miniconda/etc/profile.d/conda.sh" ]; then
+    . "/Users/$USER/.miniconda/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/gq/.miniconda/bin:$PATH"
+        export PATH="/Users/$USER/.miniconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
 
 ## Source additional scripts
 source /opt/homebrew/Caskroom/miniconda/base/envs/obb2/etc/conda
-# source /Users/gq/apps.github/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -149,7 +148,7 @@ convert_to_negative() {
   local input_image="$1"
   local output_image="${input_image%.*}_negative.${input_image##*.}"
   magick "$input_image" -negate "$output_image"
-  echo "Image converted to negative and saved as '$output_image'"
+  echo "Applied convert_to_negative() to image and saved as '$output_image' via @magick"
 }
 negpdf() {
   local input="$1"
@@ -161,13 +160,16 @@ good_health() {
     brew_update &
     lsvba && pip cache purge &
     nix-collect-garbage && nix-collect-garbage --delete-old --log-format internal-json && nix-store --gc &
-    npm install -g npm@latest
+    go get -u all && go mod tidy &
+    rustup update && cargo install-update -a &
+    conda update --all && conda clean --all --yes &
+    npm install -g npm@latest && npm cache clean --force && npm update -g
 }
 
 ocr() {
     if [[ -z "$1" ]]
     then
-        echo "Usage: ocr <image-file>"
+        echo "Usage 01:\nocr image_file\nUsage 02:\nshortcuts run ocr -i input_file -o output_file"
         return 1
     fi
     local input_file="$1"
@@ -253,17 +255,17 @@ speedia() {
               :::::::  ::::::::::::::::       :::::::              :::::::              :::::::       ::::::::::    :::::::      ::::::::::::::::::::
              ::::::::  ::::::::::::           :::::::              :::::::              :::::::    :::::::::::     :::::::      :::::::::::::::::::::
  :::::::::::::::::::  :::::::                ::::::::::::::::::::  :::::::::::::::::::  ::::::::::::::::::::  ::::::::::::::::::::::::::     ::::::::
- :::::::::::::::::    :::::::                :::::::::::::::::::: :::::::::::::::::::: :::::::::::::::::::   :::::::::::::::::::::::::        ::::::::
-:::::::::::::::::     ::::::                 :::::::::::::::::::: :::::::::::::::::::: ::::::::::::::::      ::::::::::::::::::::::::          :::::::
-::::::::::::::       :::::::                ::::::::::::::::::::  :::::::::::::::::::  ::::::::::::          :::::::::::::::::::::::           :::::::
+ :::::::::::::::::    :::::::                :::::::::::::::::::: :::::::::::::::::::: :::::::::::::::::::   :::::::::::::::::::::::::        :::::::: ┌┐┌┌─┐┌┬┐
+:::::::::::::::::     ::::::                 :::::::::::::::::::: :::::::::::::::::::: ::::::::::::::::      ::::::::::::::::::::::::          ::::::: │││├┤  │
+::::::::::::::       :::::::                ::::::::::::::::::::  :::::::::::::::::::  ::::::::::::          :::::::::::::::::::::::           :::::::o┘└┘└─┘ ┴
 EOF
-    sleep 4 && saf "https://speedia.net/" && control ; os ; speediademo ; speediagh
-    }
+    sleep 4 && saf "https://speedia.net/" "https://speedia.net/control/" "https://speedia.net/os/" "https://os.demo.speedia.net:1618/_/#/" "https://github.com/speedianet/os"
+}
 
-alias control='saf "https://speedia.net/control/"'
-alias os='saf "https://speedia.net/os/"'
-alias speediademo='saf "https://os.demo.speedia.net:1618/_/#/"'
-alias speediagh='saf https://github.com/speedianet/os'
+alias control='brave "https://speedia.net/control/"'
+alias os='brave "https://speedia.net/os/"'
+alias speediademo='brave "https://os.demo.speedia.net:1618/_/#/"'
+alias speediagh='brave https://github.com/speedianet/os'
 
 
 ## Aliases
@@ -307,7 +309,8 @@ alias f='open $(fzf)' # at /opt/homebrew/bin/
 alias fcl="osascript -e 'tell application \"Finder\" to close every window'"
 alias fg='glow $(fzf)'
 alias fn='nvim $(fzf)'
-alias fs='sioyek $(fzf)'
+alias sio='sioyek --execute-command toggle_dark_mode $(fzf)'
+alias siok='sioyek --execute-command toggle_dark_mode'
 alias fzb='bat $(fzf)'
 alias fzc='code-insiders --reuse-window $(fzf)'
 alias ft="osascript -e 'tell app \"FaceTime\" to activate'"
@@ -347,7 +350,7 @@ alias na="cd /Users/$USER/lab/apps.nix && \ls && neofetch --ascii_distro 'nixos'
 
 alias ob='open -a Obsidian.app'
 alias obb_update="z ~/lab/apps.github/OpenBBTerminal && git pull"
-alias obbx='z /Users/gq/OpenBBUserData/exports && open $(fzf)'
+alias obbx='z /Users/$USER/OpenBBUserData/exports && open $(fzf)'
 alias ol='file=$(lsd --timesort --group-dirs last | head -1) ; open "$file"' # open_last
 alias o='open .'
 
@@ -499,4 +502,3 @@ fi
 #            _- -   | | _- _
 #              _ -  | |   -_
 #                  // \\
-
